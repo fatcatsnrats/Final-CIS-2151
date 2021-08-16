@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -42,7 +43,7 @@ public class FinalProjectFXMLController implements Initializable {
     @FXML
     private ImageView dice1Img;
     @FXML
-    private Button keepDice1;
+    private ToggleButton keepDice1;
     @FXML
     private Button keepDice2;
     @FXML
@@ -157,121 +158,145 @@ public class FinalProjectFXMLController implements Initializable {
 
     public Random rand = new Random();
     public boolean dice1Keep, dice2Keep, dice3Keep, dice4Keep, dice5Keep;
+    public int dice1, dice2, dice3, dice4, dice5;
+    public int turnInt = 3;
+    public Text text1 = new Text("Welcome to Yahtzee");
+    public Text text2 = new Text("Roll the dice when you are ready to play!");
 
     @FXML
     private void rollDice(ActionEvent event) {
         Random rand = new Random();
-        int dice1 = rand.nextInt(5);
-        dice1++;
-        switch (dice1) {
-            case 1:
-                dice1Img.setImage(dice1ImgFile);
-                break;
-            case 2:
-                dice1Img.setImage(dice2ImgFile);
-                break;
-            case 3:
-                dice1Img.setImage(dice3ImgFile);
-                break;
-            case 4:
-                dice1Img.setImage(dice4ImgFile);
-                break;
-            case 5:
-                dice1Img.setImage(dice5ImgFile);
-                break;
-            case 6:
-                dice1Img.setImage(dice6ImgFile);
-                break;
-        }
+        String temp = "You ran out of rolls! Select a category to get,"
+                + " your points!" + Rules.ONES.ordinal();
+        if (turnInt < 1) {
+            if (!text1.getText().equalsIgnoreCase(temp)) {
+                text1.setText(temp);
+                textBox.getChildren().add(text1);
+            }
+        } else {
+            if (!dice1Keep) {
+                dice1 = rand.nextInt(5);
+                dice1++;
+            }
+            switch (dice1) {
+                case 1:
+                    dice1Img.setImage(dice1ImgFile);
+                    break;
+                case 2:
+                    dice1Img.setImage(dice2ImgFile);
+                    break;
+                case 3:
+                    dice1Img.setImage(dice3ImgFile);
+                    break;
+                case 4:
+                    dice1Img.setImage(dice4ImgFile);
+                    break;
+                case 5:
+                    dice1Img.setImage(dice5ImgFile);
+                    break;
+                case 6:
+                    dice1Img.setImage(dice6ImgFile);
+                    break;
+            }
 
-        int dice2 = rand.nextInt(5);
-        dice2++;
-        switch (dice2) {
-            case 1:
-                dice2Img.setImage(dice1ImgFile);
-                break;
-            case 2:
-                dice2Img.setImage(dice2ImgFile);
-                break;
-            case 3:
-                dice2Img.setImage(dice3ImgFile);
-                break;
-            case 4:
-                dice2Img.setImage(dice4ImgFile);
-                break;
-            case 5:
-                dice2Img.setImage(dice5ImgFile);
-                break;
-            case 6:
-                dice2Img.setImage(dice6ImgFile);
-                break;
-        }
+            if (!dice2Keep) {
+                dice2 = rand.nextInt(5);
+                dice2++;
+            }
+            switch (dice2) {
+                case 1:
+                    dice2Img.setImage(dice1ImgFile);
+                    break;
+                case 2:
+                    dice2Img.setImage(dice2ImgFile);
+                    break;
+                case 3:
+                    dice2Img.setImage(dice3ImgFile);
+                    break;
+                case 4:
+                    dice2Img.setImage(dice4ImgFile);
+                    break;
+                case 5:
+                    dice2Img.setImage(dice5ImgFile);
+                    break;
+                case 6:
+                    dice2Img.setImage(dice6ImgFile);
+                    break;
+            }
 
-        int dice3 = rand.nextInt(5);
-        dice3++;
-        switch (dice3) {
-            case 1:
-                dice3Img.setImage(dice1ImgFile);
-                break;
-            case 2:
-                dice3Img.setImage(dice2ImgFile);
-                break;
-            case 3:
-                dice3Img.setImage(dice3ImgFile);
-                break;
-            case 4:
-                dice3Img.setImage(dice4ImgFile);
-                break;
-            case 5:
-                dice3Img.setImage(dice5ImgFile);
-                break;
-            case 6:
-                dice3Img.setImage(dice6ImgFile);
-                break;
-        }
+            if (!dice3Keep) {
+                dice3 = rand.nextInt(5);
+                dice3++;
+            }
+            switch (dice3) {
+                case 1:
+                    dice3Img.setImage(dice1ImgFile);
+                    break;
+                case 2:
+                    dice3Img.setImage(dice2ImgFile);
+                    break;
+                case 3:
+                    dice3Img.setImage(dice3ImgFile);
+                    break;
+                case 4:
+                    dice3Img.setImage(dice4ImgFile);
+                    break;
+                case 5:
+                    dice3Img.setImage(dice5ImgFile);
+                    break;
+                case 6:
+                    dice3Img.setImage(dice6ImgFile);
+                    break;
+            }
 
-        int dice4 = rand.nextInt(5);
-        dice4++;
-        switch (dice4) {
-            case 1:
-                dice4Img.setImage(dice1ImgFile);
-                break;
-            case 2:
-                dice4Img.setImage(dice2ImgFile);
-                break;
-            case 3:
-                dice4Img.setImage(dice3ImgFile);
-                break;
-            case 4:
-                dice4Img.setImage(dice4ImgFile);
-                break;
-            case 5:
-                dice4Img.setImage(dice5ImgFile);
-                break;
-            case 6:
-                dice4Img.setImage(dice6ImgFile);
-        }
+            if (!dice4Keep) {
+                dice4 = rand.nextInt(5);
+                dice4++;
+            }
+            switch (dice4) {
+                case 1:
+                    dice4Img.setImage(dice1ImgFile);
+                    break;
+                case 2:
+                    dice4Img.setImage(dice2ImgFile);
+                    break;
+                case 3:
+                    dice4Img.setImage(dice3ImgFile);
+                    break;
+                case 4:
+                    dice4Img.setImage(dice4ImgFile);
+                    break;
+                case 5:
+                    dice4Img.setImage(dice5ImgFile);
+                    break;
+                case 6:
+                    dice4Img.setImage(dice6ImgFile);
+            }
 
-        int dice5 = rand.nextInt(5);
-        dice5++;
-        switch (dice5) {
-            case 1:
-                dice5Img.setImage(dice1ImgFile);
-                break;
-            case 2:
-                dice5Img.setImage(dice2ImgFile);
-                break;
-            case 3:
-                dice5Img.setImage(dice3ImgFile);
-                break;
-            case 4:
-                dice5Img.setImage(dice4ImgFile);
-                break;
-            case 5:
-                dice5Img.setImage(dice5ImgFile);
-                break;
-            case 6:
-                dice5Img.setImage(dice6ImgFile);
+            if (!dice5Keep) {
+                dice5 = rand.nextInt(5);
+                dice5++;
+            }
+            switch (dice5) {
+                case 1:
+                    dice5Img.setImage(dice1ImgFile);
+                    break;
+                case 2:
+                    dice5Img.setImage(dice2ImgFile);
+                    break;
+                case 3:
+                    dice5Img.setImage(dice3ImgFile);
+                    break;
+                case 4:
+                    dice5Img.setImage(dice4ImgFile);
+                    break;
+                case 5:
+                    dice5Img.setImage(dice5ImgFile);
+                    break;
+                case 6:
+                    dice5Img.setImage(dice6ImgFile);
+            }
+            turnInt--;
         }
 
 //        dice1Img.setImage(dice1ImgFile);
@@ -300,9 +325,9 @@ public class FinalProjectFXMLController implements Initializable {
      * Initializes the controller class.
      */
     public enum Rules {
-        ONES, TWOS, THREES, FOURS, FIVES, SIXES, SUM, BONUS,
-        THREE_OF_A_KIND, FOUR_OF_A_KIND, FULL_HOUSE, SMALL_STRAIGHT, LARGE_STRAIGHT,
-        CHANCE, YAHTZEE, TOTAL_SCORE
+        ZERO, ONES, TWOS, THREES, FOURS, FIVES, SIXES, THREE_OF_A_KIND,
+        FOUR_OF_A_KIND, FULL_HOUSE, SMALL_STRAIGHT, LARGE_STRAIGHT, CHANCE,
+        YAHTZEE, TOTAL_SCORE
     }
 
     public void updateDisplay() {
@@ -340,32 +365,19 @@ public class FinalProjectFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        categoryList = new ListView<>();
-//        categoryList.setPrefSize(120, 100);
         categoryList.getItems().addAll("Ones", "Twos", "Threes", "Fours", "Fives",
                 "Sixes", "Three Of A Kind", "Four Of A Kind", "Full House", "Small Straight",
                 "Large Straight", "Chance", "Yahtzee");
-
-//        rollDice.getText();
-//        rulesPlayer = new Player(" ");
         player1 = new Player();
         player2 = new Player();
         updateDisplay();
-        
+
         dice1Keep = false;
         dice2Keep = false;
         dice3Keep = false;
         dice4Keep = false;
         dice5Keep = false;
-        
-//        moveSelectorLower.getItems().add("Ones");
-        // TODO
-//
-//        tableColumn1.setCellValueFactory(new PropertyValueFactory<Player, ArrayList<String>>("score"));
-//        tableColumn2.setCellValueFactory(new PropertyValueFactory<Player, ArrayList<Integer>>("scoreInt"));
-//        tableColumn3.setCellValueFactory(new PropertyValueFactory<Player, ArrayList<Integer>>("scoreInt1"));
-//        
-//        scoringTable.setItems(getScores());
+
     }
 
     public void startTurn(Player turnPlayer) {
@@ -374,8 +386,6 @@ public class FinalProjectFXMLController implements Initializable {
         } else {
             playerTurn.setText("Player 2's Turn");
         }
-        Text text1 = new Text("Welcome to Yahtzee");
-        Text text2 = new Text("Roll the dice when you are ready to play!");
 
         textBox.getChildren().add(text1);
         textBox.getChildren().add(text2);
