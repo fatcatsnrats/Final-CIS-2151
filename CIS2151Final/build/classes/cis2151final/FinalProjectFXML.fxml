@@ -37,25 +37,6 @@
                </children>
             </HBox>
          </bottom>
-         <right>
-            <VBox prefHeight="290.0" prefWidth="156.0" BorderPane.alignment="CENTER">
-               <children>
-                  <ListView fx:id="categoryList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="155.0" style="-fx-background-color: #98948f;">
-                     <VBox.margin>
-                        <Insets left="2.0" top="8.0" />
-                     </VBox.margin>
-                  </ListView>
-                  <Button fx:id="confirmCategory" mnemonicParsing="false" onAction="#confirmCategory" style="-fx-background-color: #98948f;" text="Confirm Category">
-                     <VBox.margin>
-                        <Insets left="20.0" top="17.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-               <BorderPane.margin>
-                  <Insets top="10.0" />
-               </BorderPane.margin>
-            </VBox>
-         </right>
          <center>
             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="446.0" BorderPane.alignment="CENTER">
                <children>
@@ -67,23 +48,43 @@
                         <Insets left="150.0" />
                      </VBox.margin>
                   </Label>
-                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="446.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="playerTurn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="435.0" text="Player 1's Turn" textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="165.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Button fx:id="rollDice" mnemonicParsing="false" onAction="#rollDice" prefHeight="43.0" prefWidth="118.0" style="-fx-background-color: #98948f;" text="Roll Dice">
-                           <VBox.margin>
-                              <Insets left="160.0" top="10.0" />
-                           </VBox.margin>
-                        </Button>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="298.0">
+                           <children>
+                              <Label fx:id="playerTurn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="435.0" text="Player 1's Turn" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="165.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Button fx:id="rollDice" mnemonicParsing="false" onAction="#rollDice" prefHeight="43.0" prefWidth="118.0" style="-fx-background-color: #98948f;" text="Roll Dice">
+                                 <VBox.margin>
+                                    <Insets left="160.0" top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="106.0">
+                           <children>
+                              <Label text="Turns remaining:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="turnCount" text="Label" />
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
                      </children>
-                  </VBox>
+                  </HBox>
                   <HBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="127.0" prefWidth="446.0">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -168,7 +169,7 @@
                                     <Image url="@dice4.jpg" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="keepDice4" mnemonicParsing="false" onAction="#keepDice1" style="-fx-background-color: #98948f;" text="Keep">
+                              <Button fx:id="keepDice4" mnemonicParsing="false" onAction="#keepDice4" style="-fx-background-color: #98948f;" text="Keep">
                                  <VBox.margin>
                                     <Insets left="20.0" />
                                  </VBox.margin></Button>
@@ -189,7 +190,7 @@
                                     <Image url="@dice5.jpg" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="keepDice5" mnemonicParsing="false" onAction="#keepDice2" style="-fx-background-color: #98948f;" text="Keep">
+                              <Button fx:id="keepDice5" mnemonicParsing="false" onAction="#keepDice5" style="-fx-background-color: #98948f;" text="Keep">
                                  <VBox.margin>
                                     <Insets left="30.0" />
                                  </VBox.margin></Button>
@@ -392,6 +393,20 @@
                </BorderPane.margin>
             </HBox>
          </left>
+         <right>
+            <VBox prefHeight="312.0" prefWidth="158.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ListView fx:id="categoryList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="193.0" prefWidth="155.0" style="-fx-background-color: #98948f;">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin></ListView>
+                  <Button fx:id="confirmCategory" mnemonicParsing="false" onAction="#confirmCategory" prefHeight="34.0" prefWidth="138.0" style="-fx-background-color: #98948f;" text="Confirm Category">
+                     <VBox.margin>
+                        <Insets left="8.0" top="8.0" />
+                     </VBox.margin></Button>
+               </children>
+            </VBox>
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>

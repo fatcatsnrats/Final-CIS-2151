@@ -13,20 +13,20 @@ import java.util.ArrayList;
  */
 public class Player {
 
-    public int ones, ones1;
-    public int twos, twos1;
-    public int threes, threes1;
-    public int fours, fours1;
-    public int fives, fives1;
-    public int sixes, sixes1;
-    public int threeOfAKind, threeOfAKind1;
-    public int fourOfAKind, fourOfAKind1;
-    public int fullHouse, fullHouse1;
-    public int smallStraight, smallStraight1;
-    public int largeStraight, largeStraight1;
-    public int yahtzee, yahtzee1;
-    public int chance, chance1;
-    public int totalScore, totalScore1;
+    public int ones;
+    public int twos;
+    public int threes;
+    public int fours;
+    public int fives;
+    public int sixes;
+    public int threeOfAKind;
+    public int fourOfAKind;
+    public int fullHouse;
+    public int smallStraight;
+    public int largeStraight;
+    public int yahtzee;
+    public int chance;
+    public int totalScore;
     
     public String ONES, TWOS, THREES, FOURS, FIVES, SIXES, SUM, BONUS,
             THREE_OF_A_KIND, FOUR_OF_A_KIND, FULL_HOUSE, SMALL_STRAIGHT, LARGE_STRAIGHT,
@@ -52,21 +52,6 @@ public class Player {
         chance = 0;
         totalScore = 0;
 
-        ones1 = 0;
-        twos1 = 0;
-        threes1 = 0;
-        fours1 = 0;
-        fives1 = 0;
-        sixes1 = 0;
-        threeOfAKind1 = 0;
-        fourOfAKind1 = 0;
-        fullHouse1 = 0;
-        smallStraight1 = 0;
-        largeStraight1 = 0;
-        yahtzee1 = 0;
-        chance1 = 0;
-        totalScore1 = 0;
-
         scoreInt.add(ones);
         scoreInt.add(twos);
         scoreInt.add(threes);
@@ -81,21 +66,21 @@ public class Player {
         scoreInt.add(yahtzee);
         scoreInt.add(chance);
         scoreInt.add(totalScore);
-
-        scoreInt1.add(ones);
-        scoreInt1.add(twos);
-        scoreInt1.add(threes);
-        scoreInt1.add(fours);
-        scoreInt1.add(fives);
-        scoreInt1.add(sixes);
-        scoreInt1.add(threeOfAKind);
-        scoreInt1.add(fourOfAKind);
-        scoreInt1.add(fullHouse);
-        scoreInt1.add(smallStraight);
-        scoreInt1.add(largeStraight);
-        scoreInt1.add(yahtzee);
-        scoreInt1.add(chance);
-        scoreInt1.add(totalScore);
+//
+//        scoreInt1.add(ones);
+//        scoreInt1.add(twos);
+//        scoreInt1.add(threes);
+//        scoreInt1.add(fours);
+//        scoreInt1.add(fives);
+//        scoreInt1.add(sixes);
+//        scoreInt1.add(threeOfAKind);
+//        scoreInt1.add(fourOfAKind);
+//        scoreInt1.add(fullHouse);
+//        scoreInt1.add(smallStraight);
+//        scoreInt1.add(largeStraight);
+//        scoreInt1.add(yahtzee);
+//        scoreInt1.add(chance);
+//        scoreInt1.add(totalScore);
 
     }
 
