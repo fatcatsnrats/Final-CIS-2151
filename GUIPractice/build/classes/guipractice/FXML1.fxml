@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guipractice.FXMLController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;">
+         <center>
+            <BorderPane fx:id="roomsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="193.0" prefWidth="262.0" BorderPane.alignment="CENTER">
+               <top>
+                  <Line fx:id="northWall" endX="100.0" startX="-100.0" stroke="#1bc34b" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets top="-8.0" />
+                     </BorderPane.margin>
+                  </Line>
+               </top>
+               <left>
+                  <Line fx:id="westWall" endX="100.0" rotate="90.0" startX="-100.0" stroke="#1bc34b" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets left="-100.0" />
+                     </BorderPane.margin>
+                  </Line>
+               </left>
+               <right>
+                  <Line fx:id="eastWall" endX="100.0" rotate="90.0" startX="-100.0" stroke="#1bc34b" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets right="-100.0" />
+                     </BorderPane.margin>
+                  </Line>
+               </right>
+               <bottom>
+                  <Line fx:id="southWall" endX="100.0" startX="-100.0" stroke="#1bc34b" BorderPane.alignment="CENTER" />
+               </bottom>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </BorderPane>
+         </center>
+         <effect>
+            <Blend />
+         </effect>
+         <top>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Bad Adventure Game" wrappingWidth="150.0" BorderPane.alignment="BOTTOM_CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets top="10.0" />
+               </BorderPane.margin>
+            </Text>
+         </top>
+         <bottom>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="Label1" maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="26.0" prefWidth="591.0" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="10.0" top="-10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="Label2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="591.0" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin></Label>
+                  <Label fx:id="Label3" prefHeight="26.0" prefWidth="591.0" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin></Label>
+                  <Label fx:id="Label4" prefHeight="26.0" prefWidth="591.0" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin></Label>
+               </children>
+            </VBox>
+         </bottom>
+         <right>
+            <HBox maxHeight="-Infinity" prefHeight="80.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="leftPane" prefHeight="278.0" prefWidth="65.0">
+                     <children>
+                        <Button fx:id="northButton" mnemonicParsing="false" onAction="#northButton" text="Go north" />
+                        <Button fx:id="southButton" mnemonicParsing="false" onAction="#southButton" text="Go south">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="eastButton" mnemonicParsing="false" onAction="#eastButton" text="Go east">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="westButton" mnemonicParsing="false" onAction="#westButton" text="Go west">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="278.0" prefWidth="104.0">
+                     <children>
+                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButton" text="Search the room">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="sleepButton" mnemonicParsing="false" onAction="#sleepButton" text="Sleep">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="fightButton" mnemonicParsing="false" onAction="#fightButton" text="Fight">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="runButton" mnemonicParsing="false" onAction="#runButton" text="Run away">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="continueFight" mnemonicParsing="false" onAction="#continueFight" text="Continue..." visible="false">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="rollDice" mnemonicParsing="false" onAction="#rollDice" prefHeight="46.0" prefWidth="140.0" text="Roll dice x3" visible="false">
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="continueButton" mnemonicParsing="false" onAction="#continueButton" prefHeight="46.0" prefWidth="140.0" text="Continue..." visible="false">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="5.0" />
+               </BorderPane.margin>
+            </HBox>
+         </right>
+         <left>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="leftPaneStats" prefHeight="288.0" prefWidth="96.0">
+                     <children>
+                        <Label text="PC stats:" textFill="#aeaeae" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pcStrengthLabel" text="Strength:" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="pcIntelLabel" text="Intelligence:" textFill="WHITE" />
+                        <Label fx:id="pcDexLabel" text="Dexterity:" textFill="WHITE" />
+                        <Label fx:id="hpAmount" text="HP: 20" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="goldAmount" text="Gold: --" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox fx:id="rightPaneStats" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="NPC stats:" textFill="#aeaeae">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="npcStrengthLabel" text="Strength:" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="npcIntelLabel" text="Intelligence:" textFill="WHITE" />
+                        <Label fx:id="npcDexLabel" text="Dexterity:" textFill="WHITE" />
+                        <Label fx:id="npcHpLabel" text="HP:" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
