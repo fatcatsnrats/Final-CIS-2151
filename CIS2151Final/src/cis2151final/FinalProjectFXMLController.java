@@ -530,77 +530,98 @@ public class FinalProjectFXMLController implements Initializable {
                 switch (index) {
                     case 0:
                         if (!player1.isONES()) {
-                        player1.ONES = true;
-                        player1Ones.setTextFill(Color.BLACK);
-                        player1.setOnes(Integer.valueOf(player1Ones.getText()));
+                            player1.ONES = true;
+                            player1Ones.setTextFill(Color.BLACK);
+                            player1.setOnes(Integer.valueOf(player1Ones.getText()));
                         }
                         break;
                     case 1:
                         if (!player1.isTWOS()) {
-                        player1.TWOS = false;
-                        player1Twos.setTextFill(Color.BLACK);
-                        player1.setTwos(Integer.valueOf(player1Twos.getText()));
+                            player1.TWOS = false;
+                            player1Twos.setTextFill(Color.BLACK);
+                            player1.setTwos(Integer.valueOf(player1Twos.getText()));
                         }
                         break;
                     case 2:
                         if (!player1.isTHREES()) {
-                        player1.THREES = true;
-                        player1Threes.setTextFill(Color.BLACK);
-                        player1.setThrees(Integer.valueOf(player1Threes.getText()));
+                            player1.THREES = true;
+                            player1Threes.setTextFill(Color.BLACK);
+                            player1.setThrees(Integer.valueOf(player1Threes.getText()));
                         }
                         break;
                     case 3:
-                        player1.FOURS = true;
-                        player1Fours.setTextFill(Color.BLACK);
-                        player1.setFours(Integer.valueOf(player1Fours.getText()));
+                        if (!player1.isFOURS()) {
+                            player1.FOURS = true;
+                            player1Fours.setTextFill(Color.BLACK);
+                            player1.setFours(Integer.valueOf(player1Fours.getText()));
+                        }
                         break;
                     case 4:
-                        player1.FIVES = true;
-                        player1Fives.setTextFill(Color.BLACK);
-                        player1.setFives(Integer.valueOf(player1Fives.getText()));
+                        if (!player1.isFIVES()) {
+                            player1.FIVES = true;
+                            player1Fives.setTextFill(Color.BLACK);
+                            player1.setFives(Integer.valueOf(player1Fives.getText()));
+                        }
                         break;
                     case 5:
-                        player1.SIXES = true;
-                        player1Sixes.setTextFill(Color.BLACK);
-                        player1.setSixes(Integer.valueOf(player1Sixes.getText()));
+                        if (!player1.isSIXES()) {
+                            player1.SIXES = true;
+                            player1Sixes.setTextFill(Color.BLACK);
+                            player1.setSixes(Integer.valueOf(player1Sixes.getText()));
+                        }
                         break;
                     case 6:
-                        player1.THREE_OF_A_KIND = true;
-                        player1ThreeOfAKind.setTextFill(Color.BLACK);
-                        player1.setThreeOfAKind(Integer.valueOf(player1ThreeOfAKind.getText()));
+                        if (!player1.isTHREE_OF_A_KIND()) {
+                            player1.THREE_OF_A_KIND = true;
+                            player1ThreeOfAKind.setTextFill(Color.BLACK);
+                            player1.setThreeOfAKind(Integer.valueOf(player1ThreeOfAKind.getText()));
+                        }
                         break;
                     case 7:
-                        player1.FOUR_OF_A_KIND = true;
-                        player1FourOfAKind.setTextFill(Color.BLACK);
-                        player1.setFourOfAKind(Integer.valueOf(player1FourOfAKind.getText()));
+                        if (!player1.isFOUR_OF_A_KIND()) {
+                            player1.FOUR_OF_A_KIND = true;
+                            player1FourOfAKind.setTextFill(Color.BLACK);
+                            player1.setFourOfAKind(Integer.valueOf(player1FourOfAKind.getText()));
+                        }
                         break;
                     case 8:
-                        player1.FULL_HOUSE = true;
-                        player1FullHouse.setTextFill(Color.BLACK);
-                        player1.setFullHouse(Integer.valueOf(player1FullHouse.getText()));
+                        if (!player1.isFULL_HOUSE()) {
+                            player1.FULL_HOUSE = true;
+                            player1FullHouse.setTextFill(Color.BLACK);
+                            player1.setFullHouse(Integer.valueOf(player1FullHouse.getText()));
+                        }
                         break;
                     case 9:
-                        player1.SMALL_STRAIGHT = true;
-                        player1SmallStraight.setTextFill(Color.BLACK);
-                        player1.setSmallStraight(Integer.valueOf(player1SmallStraight.getText()));
+                        if (!player1.isSMALL_STRAIGHT()) {
+                            player1.SMALL_STRAIGHT = true;
+                            player1SmallStraight.setTextFill(Color.BLACK);
+                            player1.setSmallStraight(Integer.valueOf(player1SmallStraight.getText()));
+                        }
                         break;
                     case 10:
-                        player1.LARGE_STRAIGHT = true;
-                        player1LargeStraight.setTextFill(Color.BLACK);
-                        player1.setLargeStraight(Integer.valueOf(player1LargeStraight.getText()));
+                        if (!player1.isLARGE_STRAIGHT()) {
+                            player1.LARGE_STRAIGHT = true;
+                            player1LargeStraight.setTextFill(Color.BLACK);
+                            player1.setLargeStraight(Integer.valueOf(player1LargeStraight.getText()));
+                        }
                         break;
                     case 11:
-                        player1.YAHTZEE = true;
-                        player1Yahtzee.setTextFill(Color.BLACK);
-                        player1.setChance(Integer.valueOf(player1Chance.getText()));
+                        if (!player1.isCHANCE()) {
+                            player1.CHANCE = true;
+                            player1Chance.setTextFill(Color.BLACK);
+                            player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
+                        }
                         break;
                     case 12:
-                        player1.CHANCE = true;
-                        player1Chance.setTextFill(Color.BLACK);
-                        player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
+                        if (!player1.isYAHTZEE()) {
+                            player1.YAHTZEE = true;
+                            player1Yahtzee.setTextFill(Color.BLACK);
+                            player1.setChance(Integer.valueOf(player1Chance.getText()));
+                        }
                         break;
                 }
             } else {
+                displayScore();
 //                text1.setText("You cannot selected that category more than once!");
 //                textBox.getChildren().add(text1);
             }
@@ -682,6 +703,7 @@ public class FinalProjectFXMLController implements Initializable {
                         break;
                 }
             } else {
+                displayScore();
 //                text1.setText("You cannot selected that category more than once!");
 //                textBox.getChildren().add(text1);
             }
