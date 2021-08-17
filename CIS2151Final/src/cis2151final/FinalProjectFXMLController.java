@@ -489,8 +489,8 @@ public class FinalProjectFXMLController implements Initializable {
 //    private void rollDice(MouseEvent event) {
 //    }
 
-    int[] categories = new int[13];
-    int[] categories1 = new int[13];
+//    int[] categories = new int[13];
+//    int[] categories1 = new int[13];
 
     @FXML
     private void confirmCategory(ActionEvent event) {
@@ -524,22 +524,19 @@ public class FinalProjectFXMLController implements Initializable {
         player2LargeStraight.setTextFill(Color.BLACK);
         player2Yahtzee.setTextFill(Color.BLACK);
         player2Chance.setTextFill(Color.BLACK);
-        
-        text1.setText("You have already chosen that category, please try"
-                + " another catergory.");
 
         int index = categoryList.getSelectionModel().getSelectedIndex();
 
         int counter = 0;
         categorySelected = true;
         if (player1Turn) {
-            for (int i = 0; i < categories.length; i++) {
-                if (categories[i] == index) {
-                    counter++;
-                }
-            }
-            if (counter == 0) {
-                categories[index] = index;
+//            for (int i = 0; i < categories.length; i++) {
+//                if (categories[i] == index) {
+//                    counter++;
+//                }
+//            }
+            if (counter <= 26) {
+//                categories[index] = index;
                 player1Turn = false;
                 playerTurn.setText("Player 2's Turn");
                 switch (index) {
@@ -675,17 +672,19 @@ public class FinalProjectFXMLController implements Initializable {
                         break;
                 }
             } else {
+                playAgain();
+                
                 displayScore();
 //                text1.setText("You cannot selected that category more than once!");
 //                textBox.getChildren().add(text1);
             }
 
         } else {
-            for (int i = 0; i < categories1.length; i++) {
-                if (categories1[i] == index) {
-                    counter++;
-                }
-            }
+//            for (int i = 0; i < categories1.length; i++) {
+//                if (categories1[i] == index) {
+//                    counter++;
+//                }
+//            }
             if (counter == 0) {
                 player1Turn = true;
                 playerTurn.setText("Player 1's Turn");
@@ -785,6 +784,18 @@ public class FinalProjectFXMLController implements Initializable {
         ZERO, ONES, TWOS, THREES, FOURS, FIVES, SIXES, THREE_OF_A_KIND,
         FOUR_OF_A_KIND, FULL_HOUSE, SMALL_STRAIGHT, LARGE_STRAIGHT, CHANCE,
         YAHTZEE, TOTAL_SCORE
+    }
+    
+    public void playAgain() {
+        textBox1.setText("Roll the dice to play again.");
+        textBox2.setText("");
+        textBox3.setText("");
+        textBox4.setText("");
+        textBox5.setText("");
+        textBox6.setText("");
+        
+        player1 = new Player();
+        player2 = new Player();
     }
 
     public int sum(int n) {
