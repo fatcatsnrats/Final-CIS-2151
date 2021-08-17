@@ -39,8 +39,6 @@ public class FinalProjectFXMLController implements Initializable {
     public Image dice4ImgFile = new Image(getClass().getResourceAsStream("dice4.jpg"));
     public Image dice5ImgFile = new Image(getClass().getResourceAsStream("dice5.jpg"));
     public Image dice6ImgFile = new Image(getClass().getResourceAsStream("dice6.jpg"));
-
-    private TextFlow textBox;
     @FXML
     private ImageView dice1Img;
     @FXML
@@ -173,16 +171,13 @@ public class FinalProjectFXMLController implements Initializable {
     public boolean dice1Keep, dice2Keep, dice3Keep, dice4Keep, dice5Keep;
     public int dice1, dice2, dice3, dice4, dice5;
     public int turnInt = 3;
-    public Text text1 = new Text("Welcome to Yahtzee");
-    public Text text2 = new Text("Roll the dice when you are ready to play!");
     public int[] diceArray = new int[6];
     public boolean player1Turn;
     public boolean categorySelected = false;
-    
 
     @FXML
     private void rollDice(ActionEvent event) {
-        
+
         Random rand = new Random();
         String temp = "You ran out of rolls! Select a category to get,"
                 + " your points!";
@@ -196,9 +191,7 @@ public class FinalProjectFXMLController implements Initializable {
 //            }
         }
         if (turnInt < 1) {
-            if (!text1.getText().equalsIgnoreCase(temp)) {
-                text1.setText(temp);
-            }
+            textBox1.setText(temp);
         } else {
             if (!keepDice1.isSelected()) {
                 dice1 = rand.nextInt(5);
@@ -475,29 +468,14 @@ public class FinalProjectFXMLController implements Initializable {
 
     }
 
-    @FXML
-    private void dice1Img(MouseEvent event) {
-        dice1Img.setImage(dice1ImgFile);
-    }
-
-    @FXML
-    private void dice2Img(MouseEvent event) {
-        dice2Img.setImage(dice1ImgFile);
-    }
-//
 //    @FXML
 //    private void rollDice(MouseEvent event) {
 //    }
-
 //    int[] categories = new int[13];
 //    int[] categories1 = new int[13];
-    
     public int counter;
 
-    @FXML
-    private void confirmCategory(ActionEvent event) {
-
-        turnCount.setText(String.valueOf(3));
+    public void updateScores() {
 
         player1Ones.setTextFill(Color.BLACK);
         player1Twos.setTextFill(Color.BLACK);
@@ -526,11 +504,35 @@ public class FinalProjectFXMLController implements Initializable {
         player2LargeStraight.setTextFill(Color.BLACK);
         player2Yahtzee.setTextFill(Color.BLACK);
         player2Chance.setTextFill(Color.BLACK);
+    }
+
+    public void categorySuccess(String str) {
+
+        turnCount.setText(String.valueOf(3));
+        playerTurn.setText(str);
+        rollDice.setVisible(true);
+        textBox1.setText("");
+        textBox2.setText("");
+        categorySelected = true;
+
+        if (player1Turn) {
+            player1Turn = false;
+        } else {
+            player1Turn = true;
+        }
+
+        updateScores();
+    }
+
+    @FXML
+    private void confirmCategory(ActionEvent event) {
 
         int index = categoryList.getSelectionModel().getSelectedIndex();
 
-        counter = 0;
-        categorySelected = true;
+        String temp = "You have already chosen that category,";
+        String temp1 = "please select another category.";
+        String string1 = "Player 1's Turn";
+        String string2 = "Player 2's Turn";
         if (player1Turn) {
 //            for (int i = 0; i < categories.length; i++) {
 //                if (categories[i] == index) {
@@ -539,137 +541,148 @@ public class FinalProjectFXMLController implements Initializable {
 //            }
             if (counter <= 26) {
 //                categories[index] = index;
-                player1Turn = false;
-                playerTurn.setText("Player 2's Turn");
                 switch (index) {
                     case 0:
                         if (!player1.isONES()) {
                             player1.ONES = true;
-                            player1Ones.setTextFill(Color.BLACK);
+                            categorySuccess(string2);
                             player1.setOnes(Integer.valueOf(player1Ones.getText()));
                         } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 1:
                         if (!player1.isTWOS()) {
-                            player1.TWOS = false;
-                            player1Twos.setTextFill(Color.BLACK);
+                            player1.TWOS = true;
+                            categorySuccess(string2);
                             player1.setTwos(Integer.valueOf(player1Twos.getText()));
                         } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 2:
                         if (!player1.isTHREES()) {
                             player1.THREES = true;
-                            player1Threes.setTextFill(Color.BLACK);
+                            categorySuccess(string2);
                             player1.setThrees(Integer.valueOf(player1Threes.getText()));
                         } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 3:
                         if (!player1.isFOURS()) {
                             player1.FOURS = true;
-                            player1Fours.setTextFill(Color.BLACK);
+                            categorySuccess(string2);
                             player1.setFours(Integer.valueOf(player1Fours.getText()));
                         } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 4:
                         if (!player1.isFIVES()) {
                             player1.FIVES = true;
-                            player1Fives.setTextFill(Color.BLACK);
+                            categorySuccess(string2);
                             player1.setFives(Integer.valueOf(player1Fives.getText()));
-                        }  else {
+                        } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 5:
                         if (!player1.isSIXES()) {
                             player1.SIXES = true;
-                            player1Sixes.setTextFill(Color.BLACK);
+                            categorySuccess(string2);
                             player1.setSixes(Integer.valueOf(player1Sixes.getText()));
-                        }  else {
+                        } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 6:
                         if (!player1.isTHREE_OF_A_KIND()) {
                             player1.THREE_OF_A_KIND = true;
-                            player1ThreeOfAKind.setTextFill(Color.BLACK);
+                            categorySuccess(string2);
                             player1.setThreeOfAKind(Integer.valueOf(player1ThreeOfAKind.getText()));
-                        }  else {
+                        } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 7:
                         if (!player1.isFOUR_OF_A_KIND()) {
                             player1.FOUR_OF_A_KIND = true;
-                            player1FourOfAKind.setTextFill(Color.BLACK);
+                            categorySuccess(string2);
                             player1.setFourOfAKind(Integer.valueOf(player1FourOfAKind.getText()));
-                        }  else {
+                        } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 8:
                         if (!player1.isFULL_HOUSE()) {
                             player1.FULL_HOUSE = true;
-                            player1FullHouse.setTextFill(Color.BLACK);
+                            categorySuccess(string2);
                             player1.setFullHouse(Integer.valueOf(player1FullHouse.getText()));
-                        }  else {
+                        } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 9:
                         if (!player1.isSMALL_STRAIGHT()) {
                             player1.SMALL_STRAIGHT = true;
-                            player1SmallStraight.setTextFill(Color.BLACK);
+                            categorySuccess(string2);
                             player1.setSmallStraight(Integer.valueOf(player1SmallStraight.getText()));
-                        }  else {
+                        } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 10:
                         if (!player1.isLARGE_STRAIGHT()) {
                             player1.LARGE_STRAIGHT = true;
-                            player1LargeStraight.setTextFill(Color.BLACK);
+                            categorySuccess(string2);
                             player1.setLargeStraight(Integer.valueOf(player1LargeStraight.getText()));
-                        }  else {
+                        } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 11:
                         if (!player1.isCHANCE()) {
                             player1.CHANCE = true;
-                            player1Chance.setTextFill(Color.BLACK);
-                            player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
-                        }  else {
+                            categorySuccess(string2);
+                            player1.setChance(Integer.valueOf(player1Chance.getText()));
+                        } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                     case 12:
                         if (!player1.isYAHTZEE()) {
                             player1.YAHTZEE = true;
-                            player1Yahtzee.setTextFill(Color.BLACK);
-                            player1.setChance(Integer.valueOf(player1Chance.getText()));
-                        }  else {
+                            categorySuccess(string2);
+                            player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
+                        } else {
                             rollDice.setVisible(false);
-                            textBox.getChildren().add(text1);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
                         }
                         break;
                 }
@@ -686,74 +699,150 @@ public class FinalProjectFXMLController implements Initializable {
 //                    counter++;
 //                }
 //            }
-            if (counter == 0) {
-                player1Turn = true;
-                playerTurn.setText("Player 1's Turn");
+            if (counter <= 26) {
                 switch (index) {
                     case 0:
-                        player2.ONES = true;
-                        player2Ones.setTextFill(Color.BLACK);
-                        player2.setOnes(Integer.valueOf(player2Ones.getText()));
+                        if (!player2.isONES()) {
+                            player2.ONES = true;
+                            categorySuccess(string1);
+                            player2.setOnes(Integer.valueOf(player2Ones.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 1:
-                        player2.TWOS = false;
-                        player2Twos.setTextFill(Color.BLACK);
-                        player2.setTwos(Integer.valueOf(player2Twos.getText()));
+                        if (!player2.isTWOS()) {
+                            player2.TWOS = true;
+                            categorySuccess(string1);
+                            player2.setTwos(Integer.valueOf(player2Twos.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 2:
-                        player2.THREES = true;
-                        player2Threes.setTextFill(Color.BLACK);
-                        player2.setThrees(Integer.valueOf(player2Threes.getText()));
+                        if (!player2.isTHREES()) {
+                            player2.THREES = true;
+                            categorySuccess(string1);
+                            player2.setThrees(Integer.valueOf(player2Threes.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 3:
-                        player2.FOURS = true;
-                        player2Fours.setTextFill(Color.BLACK);
-                        player2.setFours(Integer.valueOf(player2Fours.getText()));
+                        if (!player2.isFOURS()) {
+                            player2.FOURS = true;
+                            categorySuccess(string1);
+                            player2.setFours(Integer.valueOf(player2Fours.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 4:
-                        player2.FIVES = true;
-                        player2Fives.setTextFill(Color.BLACK);
-                        player2.setFives(Integer.valueOf(player2Fives.getText()));
+                        if (!player2.isFIVES()) {
+                            player2.FIVES = true;
+                            categorySuccess(string1);
+                            player2.setFives(Integer.valueOf(player2Fives.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 5:
-                        player2.SIXES = true;
-                        player2Sixes.setTextFill(Color.BLACK);
-                        player2.setSixes(Integer.valueOf(player2Sixes.getText()));
+                        if (!player2.isSIXES()) {
+                            player2.SIXES = true;
+                            categorySuccess(string1);
+                            player2.setSixes(Integer.valueOf(player2Sixes.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 6:
-                        player2.THREE_OF_A_KIND = true;
-                        player2ThreeOfAKind.setTextFill(Color.BLACK);
-                        player2.setThreeOfAKind(Integer.valueOf(player2ThreeOfAKind.getText()));
+                        if (!player2.isTHREE_OF_A_KIND()) {
+                            player2.THREE_OF_A_KIND = true;
+                            categorySuccess(string1);
+                            player2.setThreeOfAKind(Integer.valueOf(player2ThreeOfAKind.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 7:
-                        player2.FOUR_OF_A_KIND = true;
-                        player2FourOfAKind.setTextFill(Color.BLACK);
-                        player2.setFourOfAKind(Integer.valueOf(player2FourOfAKind.getText()));
+                        if (!player2.isFOUR_OF_A_KIND()) {
+                            player2.FOUR_OF_A_KIND = true;
+                            categorySuccess(string1);
+                            player2.setFourOfAKind(Integer.valueOf(player2FourOfAKind.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 8:
-                        player2.FULL_HOUSE = true;
-                        player2FullHouse.setTextFill(Color.BLACK);
-                        player2.setFullHouse(Integer.valueOf(player2FullHouse.getText()));
+                        if (!player2.isFULL_HOUSE()) {
+                            player2.FULL_HOUSE = true;
+                            categorySuccess(string1);
+                            player2.setFullHouse(Integer.valueOf(player2FullHouse.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 9:
-                        player2.SMALL_STRAIGHT = true;
-                        player2SmallStraight.setTextFill(Color.BLACK);
-                        player2.setSmallStraight(Integer.valueOf(player2SmallStraight.getText()));
+                        if (!player2.isSMALL_STRAIGHT()) {
+                            player2.SMALL_STRAIGHT = true;
+                            categorySuccess(string1);
+                            player2.setSmallStraight(Integer.valueOf(player2SmallStraight.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 10:
-                        player2.LARGE_STRAIGHT = true;
-                        player2LargeStraight.setTextFill(Color.BLACK);
-                        player2.setLargeStraight(Integer.valueOf(player2LargeStraight.getText()));
+                        if (!player2.isLARGE_STRAIGHT()) {
+                            player2.LARGE_STRAIGHT = true;
+                            categorySuccess(string1);
+                            player2.setLargeStraight(Integer.valueOf(player2LargeStraight.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 11:
-                        player2.YAHTZEE = true;
-                        player2Yahtzee.setTextFill(Color.BLACK);
-                        player2.setChance(Integer.valueOf(player2Chance.getText()));
+                        if (!player2.isCHANCE()) {
+                            player2.CHANCE = true;
+                            categorySuccess(string1);
+                            player2.setChance(Integer.valueOf(player2Chance.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                     case 12:
-                        player2.CHANCE = true;
-                        player2Chance.setTextFill(Color.BLACK);
-                        player2.setYahtzee(Integer.valueOf(player2Yahtzee.getText()));
+                        if (!player2.isYAHTZEE()) {
+                            player2.YAHTZEE = true;
+                            categorySuccess(string1);
+                            player2.setYahtzee(Integer.valueOf(player2Yahtzee.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox1.setText(temp);
+                            textBox2.setText(temp1);
+                        }
                         break;
                 }
             } else {
@@ -780,6 +869,14 @@ public class FinalProjectFXMLController implements Initializable {
         updateDisplayInitialize();
     }
 
+    @FXML
+    private void dice1Img(MouseEvent event) {
+    }
+
+    @FXML
+    private void dice2Img(MouseEvent event) {
+    }
+
     /**
      * Initializes the controller class.
      */
@@ -788,7 +885,7 @@ public class FinalProjectFXMLController implements Initializable {
         FOUR_OF_A_KIND, FULL_HOUSE, SMALL_STRAIGHT, LARGE_STRAIGHT, CHANCE,
         YAHTZEE, TOTAL_SCORE
     }
-    
+
     public void playAgain() {
         counter = 0;
         textBox1.setText("Roll the dice to play again.");
@@ -797,9 +894,10 @@ public class FinalProjectFXMLController implements Initializable {
         textBox4.setText("");
         textBox5.setText("");
         textBox6.setText("");
-        
+
         player1 = new Player();
         player2 = new Player();
+        player1Turn = true;
     }
 
     public int sum(int n) {
@@ -909,19 +1007,15 @@ public class FinalProjectFXMLController implements Initializable {
         dice4Keep = false;
         dice5Keep = false;
 
+        textBox1.setText("");
+        textBox2.setText("");
+        textBox3.setText("");
+        textBox4.setText("");
+        textBox5.setText("");
+        textBox6.setText("");
+
         player1Turn = true;
-
-    }
-
-    public void startTurn(Player turnPlayer) {
-        if (turnPlayer == player1) {
-            playerTurn.setText("Player 1's Turn");
-        } else {
-            playerTurn.setText("Player 2's Turn");
-        }
-
-        textBox.getChildren().add(text1);
-        textBox.getChildren().add(text2);
+        counter = 0;
 
     }
 //    

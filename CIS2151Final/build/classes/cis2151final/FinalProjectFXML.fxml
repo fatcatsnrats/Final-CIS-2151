@@ -35,8 +35,8 @@
                         <Insets left="200.0" />
                      </HBox.margin>
                      <children>
-                        <Label fx:id="textBox1" alignment="TOP_CENTER" text="Label" />
-                        <Label fx:id="textBox2" text="Label" />
+                        <Label fx:id="textBox1" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Label" />
+                        <Label fx:id="textBox2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Label" />
                         <Label fx:id="textBox3" text="Label" />
                         <Label fx:id="textBox4" text="Label" />
                         <Label fx:id="textBox5" text="Label" />
