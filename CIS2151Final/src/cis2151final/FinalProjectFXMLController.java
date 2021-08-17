@@ -141,6 +141,8 @@ public class FinalProjectFXMLController implements Initializable {
     private Label textBox5;
     @FXML
     private Label textBox6;
+    @FXML
+    private Label roundNumb;
 
     @FXML
     private void keepDice1(ActionEvent event) {
@@ -182,6 +184,10 @@ public class FinalProjectFXMLController implements Initializable {
 
         String temp = "You ran out of rolls! Select a category to get,"
                 + " your points!";
+        
+        roundNumb.setText(String.valueOf(counter + 1));
+        
+        
         if (categorySelected) {
             categorySelected = false;
             turnInt = 3;
@@ -537,6 +543,8 @@ public class FinalProjectFXMLController implements Initializable {
         updateScores();
         if (counter >= 26) {
             playAgain();
+        } else {
+            roundNumb.setText(String.valueOf(counter + 1));
         }
     }
 
@@ -954,6 +962,8 @@ public class FinalProjectFXMLController implements Initializable {
         player1 = new Player();
         player2 = new Player();
         updateDisplayInitialize();
+        
+        roundNumb.setText(String.valueOf(0));
 
         dice1Keep = false;
         dice2Keep = false;
