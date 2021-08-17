@@ -78,7 +78,7 @@
                                     <Insets top="40.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="turnCount" text="Label" />
+                              <Label fx:id="turnCount" text="0" />
                            </children>
                            <HBox.margin>
                               <Insets />

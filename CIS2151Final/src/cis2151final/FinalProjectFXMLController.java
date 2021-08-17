@@ -162,12 +162,14 @@ public class FinalProjectFXMLController implements Initializable {
     public int turnInt = 3;
     public Text text1 = new Text("Welcome to Yahtzee");
     public Text text2 = new Text("Roll the dice when you are ready to play!");
+    public int[] diceArray = new int[5];
+    public boolean player1Turn;
 
     @FXML
     private void rollDice(ActionEvent event) {
         Random rand = new Random();
         String temp = "You ran out of rolls! Select a category to get,"
-                + " your points!" + Rules.ONES.ordinal();
+                + " your points!";
         if (turnInt < 1) {
             if (!text1.getText().equalsIgnoreCase(temp)) {
                 text1.setText(temp);
@@ -296,10 +298,43 @@ public class FinalProjectFXMLController implements Initializable {
                 case 6:
                     dice5Img.setImage(dice6ImgFile);
             }
+            diceArray[0] = dice1;
+            diceArray[1] = dice2;
+            diceArray[2] = dice3;
+            diceArray[3] = dice4;
+            diceArray[4] = dice5;
+
             turnInt--;
+            turnCount.setText(String.valueOf(turnInt));
         }
+        displayScore();
 
 //        dice1Img.setImage(dice1ImgFile);
+    }
+
+    public void displayScore() {
+        if (player1Turn) {
+            player1Ones.setText(String.valueOf(sum(1)));
+            player1Twos.setText(String.valueOf(sum(1)));
+            player1Ones.setText(String.valueOf(sum(1)));
+            player1Ones.setText(String.valueOf(sum(1)));
+            player1Ones.setText(String.valueOf(sum(1)));
+            player1Ones.setText(String.valueOf(sum(1)));
+            player1Ones.setText(String.valueOf(sum(1)));
+            player1Ones.setText(String.valueOf(sum(1)));
+            player1Ones.setText(String.valueOf(sum(1)));
+            player1Ones.setText(String.valueOf(sum(1)));
+            player1Ones.setText(String.valueOf(sum(1)));
+            player1Ones.setText(String.valueOf(sum(1)));
+            
+        } else {
+
+        }
+        if (player1Turn) {
+            player1Turn = false;
+        } else {
+            player1Turn = true;
+        }
     }
 
     @FXML
@@ -330,7 +365,17 @@ public class FinalProjectFXMLController implements Initializable {
         YAHTZEE, TOTAL_SCORE
     }
 
-    public void updateDisplay() {
+    public int sum(int n) {
+        int count = 0;
+        for (int i = 0; i >= diceArray.length; i++) {
+            if (diceArray[i] == n) {
+                count++;
+            }
+        }
+        return count * n;
+    }
+
+    public void updateDisplayInitialize() {
         player1Ones.setText(String.valueOf(player1.ones));
         player1Twos.setText(String.valueOf(player1.twos));
         player1Threes.setText(String.valueOf(player1.threes));
@@ -370,13 +415,15 @@ public class FinalProjectFXMLController implements Initializable {
                 "Large Straight", "Chance", "Yahtzee");
         player1 = new Player();
         player2 = new Player();
-        updateDisplay();
+        updateDisplayInitialize();
 
         dice1Keep = false;
         dice2Keep = false;
         dice3Keep = false;
         dice4Keep = false;
         dice5Keep = false;
+
+        player1Turn = true;
 
     }
 
