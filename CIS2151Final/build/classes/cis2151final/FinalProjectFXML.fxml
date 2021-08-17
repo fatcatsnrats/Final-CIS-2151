@@ -15,7 +15,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="820.0" style="-fx-background-color: #A9A59F;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cis2151final.FinalProjectFXMLController">
     <stylesheets>
@@ -23,6 +22,7 @@
     </stylesheets>
    <children>
       <Line endX="142.39999389648438" endY="298.0000305175781" startX="142.39999389648438" startY="23.200000762939453" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="133.0" layoutX="194.0" layoutY="298.0" stroke="BLACK" strokeType="INSIDE" width="452.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="27.0" layoutX="95.0" layoutY="20.0" opacity="0.36" stroke="BLACK" strokeType="INSIDE" width="102.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b181e1" height="252.0" layoutX="3.0" layoutY="45.0" opacity="0.16" stroke="BLACK" strokeType="INSIDE" width="93.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#88c5ff" height="252.0" layoutX="95.0" layoutY="47.0" opacity="0.13" stroke="BLACK" strokeType="INSIDE" width="102.0" />
@@ -30,11 +30,19 @@
          <bottom>
             <HBox prefHeight="154.0" prefWidth="806.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextFlow fx:id="textBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="114.0" prefWidth="710.0" style="-fx-background-color: #98948f;" textAlignment="CENTER">
+                  <VBox prefHeight="200.0" prefWidth="100.0">
                      <HBox.margin>
-                        <Insets left="48.0" />
+                        <Insets left="200.0" />
                      </HBox.margin>
-                  </TextFlow>
+                     <children>
+                        <Label fx:id="textBox1" alignment="TOP_CENTER" text="Label" />
+                        <Label fx:id="textBox2" text="Label" />
+                        <Label fx:id="textBox3" text="Label" />
+                        <Label fx:id="textBox4" text="Label" />
+                        <Label fx:id="textBox5" text="Label" />
+                        <Label fx:id="textBox6" text="Label" />
+                     </children>
+                  </VBox>
                </children>
             </HBox>
          </bottom>

@@ -40,7 +40,6 @@ public class FinalProjectFXMLController implements Initializable {
     public Image dice5ImgFile = new Image(getClass().getResourceAsStream("dice5.jpg"));
     public Image dice6ImgFile = new Image(getClass().getResourceAsStream("dice6.jpg"));
 
-    @FXML
     private TextFlow textBox;
     @FXML
     private ImageView dice1Img;
@@ -132,6 +131,18 @@ public class FinalProjectFXMLController implements Initializable {
     private Button confirmCategory;
     @FXML
     private Label turnCount;
+    @FXML
+    private Label textBox1;
+    @FXML
+    private Label textBox2;
+    @FXML
+    private Label textBox3;
+    @FXML
+    private Label textBox4;
+    @FXML
+    private Label textBox5;
+    @FXML
+    private Label textBox6;
 
     @FXML
     private void keepDice1(ActionEvent event) {
@@ -167,9 +178,11 @@ public class FinalProjectFXMLController implements Initializable {
     public int[] diceArray = new int[6];
     public boolean player1Turn;
     public boolean categorySelected = false;
+    
 
     @FXML
     private void rollDice(ActionEvent event) {
+        
         Random rand = new Random();
         String temp = "You ran out of rolls! Select a category to get,"
                 + " your points!";

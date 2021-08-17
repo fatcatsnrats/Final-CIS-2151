@@ -31,10 +31,6 @@ public class Player {
     public boolean ONES, TWOS, THREES, FOURS, FIVES, SIXES, SUM, BONUS,
             THREE_OF_A_KIND, FOUR_OF_A_KIND, FULL_HOUSE, SMALL_STRAIGHT, LARGE_STRAIGHT,
             CHANCE, YAHTZEE, TOTAL_SCORE = false;
-//
-//    public ArrayList<String> score = new ArrayList<String>();
-//    public ArrayList<Integer> scoreInt = new ArrayList<Integer>();
-//    public ArrayList<Integer> scoreInt1 = new ArrayList<Integer>();
 
     public Player() {
         ones = 0;
@@ -51,37 +47,6 @@ public class Player {
         yahtzee = 0;
         chance = 0;
         totalScore = 0;
-//
-//        scoreInt.add(ones);
-//        scoreInt.add(twos);
-//        scoreInt.add(threes);
-//        scoreInt.add(fours);
-//        scoreInt.add(fives);
-//        scoreInt.add(sixes);
-//        scoreInt.add(threeOfAKind);
-//        scoreInt.add(fourOfAKind);
-//        scoreInt.add(fullHouse);
-//        scoreInt.add(smallStraight);
-//        scoreInt.add(largeStraight);
-//        scoreInt.add(yahtzee);
-//        scoreInt.add(chance);
-//        scoreInt.add(totalScore);
-//
-//        scoreInt1.add(ones);
-//        scoreInt1.add(twos);
-//        scoreInt1.add(threes);
-//        scoreInt1.add(fours);
-//        scoreInt1.add(fives);
-//        scoreInt1.add(sixes);
-//        scoreInt1.add(threeOfAKind);
-//        scoreInt1.add(fourOfAKind);
-//        scoreInt1.add(fullHouse);
-//        scoreInt1.add(smallStraight);
-//        scoreInt1.add(largeStraight);
-//        scoreInt1.add(yahtzee);
-//        scoreInt1.add(chance);
-//        scoreInt1.add(totalScore);
-
     }
     
     public int total() {
@@ -90,38 +55,7 @@ public class Player {
                 + largeStraight + yahtzee + chance;
         return totalScore;
     }
-
-    public Player(String trash) {
-//        ONES = " ONES";
-//        TWOS = " TWOS";
-//        THREES = " THREES";
-//        FOURS = " FOURS";
-//        FIVES = " FIVES";
-//        SIXES = " SIXES";
-//        THREE_OF_A_KIND = " THREE_OF_A_KIND";
-//        FOUR_OF_A_KIND = " FOUR_OF_A_KIND";
-//        FULL_HOUSE = " FULL_HOUSE";
-//        SMALL_STRAIGHT = " SMALL_STRAIGHT";
-//        LARGE_STRAIGHT = " LARGE_STRAIGHT";
-//        YAHTZEE = " YAHTZEE";
-//        CHANCE = " CHANCE";
-//        TOTAL_SCORE = " TOTAL_SCORE";
-//        score.add(ONES);
-//        score.add(TWOS);
-//        score.add(THREES);
-//        score.add(FOURS);
-//        score.add(FIVES);
-//        score.add(SIXES);
-//        score.add(THREE_OF_A_KIND);
-//        score.add(FOUR_OF_A_KIND);
-//        score.add(FULL_HOUSE);
-//        score.add(SMALL_STRAIGHT);
-//        score.add(LARGE_STRAIGHT);
-//        score.add(YAHTZEE);
-//        score.add(CHANCE);
-//        score.add(TOTAL_SCORE);
-    }
-
+    
     public boolean isONES() {
         return ONES;
     }
