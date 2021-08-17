@@ -185,7 +185,6 @@ public class FinalProjectFXMLController implements Initializable {
         if (turnInt < 1) {
             if (!text1.getText().equalsIgnoreCase(temp)) {
                 text1.setText(temp);
-                textBox.getChildren().add(text1);
             }
         } else {
             if (!keepDice1.isSelected()) {
@@ -512,6 +511,9 @@ public class FinalProjectFXMLController implements Initializable {
         player2LargeStraight.setTextFill(Color.BLACK);
         player2Yahtzee.setTextFill(Color.BLACK);
         player2Chance.setTextFill(Color.BLACK);
+        
+        text1.setText("You have already chosen that category, please try"
+                + " another catergory.");
 
         int index = categoryList.getSelectionModel().getSelectedIndex();
 
@@ -533,6 +535,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.ONES = true;
                             player1Ones.setTextFill(Color.BLACK);
                             player1.setOnes(Integer.valueOf(player1Ones.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 1:
@@ -540,6 +545,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.TWOS = false;
                             player1Twos.setTextFill(Color.BLACK);
                             player1.setTwos(Integer.valueOf(player1Twos.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 2:
@@ -547,6 +555,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.THREES = true;
                             player1Threes.setTextFill(Color.BLACK);
                             player1.setThrees(Integer.valueOf(player1Threes.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 3:
@@ -554,6 +565,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.FOURS = true;
                             player1Fours.setTextFill(Color.BLACK);
                             player1.setFours(Integer.valueOf(player1Fours.getText()));
+                        } else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 4:
@@ -561,6 +575,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.FIVES = true;
                             player1Fives.setTextFill(Color.BLACK);
                             player1.setFives(Integer.valueOf(player1Fives.getText()));
+                        }  else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 5:
@@ -568,6 +585,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.SIXES = true;
                             player1Sixes.setTextFill(Color.BLACK);
                             player1.setSixes(Integer.valueOf(player1Sixes.getText()));
+                        }  else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 6:
@@ -575,6 +595,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.THREE_OF_A_KIND = true;
                             player1ThreeOfAKind.setTextFill(Color.BLACK);
                             player1.setThreeOfAKind(Integer.valueOf(player1ThreeOfAKind.getText()));
+                        }  else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 7:
@@ -582,6 +605,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.FOUR_OF_A_KIND = true;
                             player1FourOfAKind.setTextFill(Color.BLACK);
                             player1.setFourOfAKind(Integer.valueOf(player1FourOfAKind.getText()));
+                        }  else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 8:
@@ -589,6 +615,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.FULL_HOUSE = true;
                             player1FullHouse.setTextFill(Color.BLACK);
                             player1.setFullHouse(Integer.valueOf(player1FullHouse.getText()));
+                        }  else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 9:
@@ -596,6 +625,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.SMALL_STRAIGHT = true;
                             player1SmallStraight.setTextFill(Color.BLACK);
                             player1.setSmallStraight(Integer.valueOf(player1SmallStraight.getText()));
+                        }  else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 10:
@@ -603,6 +635,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.LARGE_STRAIGHT = true;
                             player1LargeStraight.setTextFill(Color.BLACK);
                             player1.setLargeStraight(Integer.valueOf(player1LargeStraight.getText()));
+                        }  else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 11:
@@ -610,6 +645,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.CHANCE = true;
                             player1Chance.setTextFill(Color.BLACK);
                             player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
+                        }  else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                     case 12:
@@ -617,6 +655,9 @@ public class FinalProjectFXMLController implements Initializable {
                             player1.YAHTZEE = true;
                             player1Yahtzee.setTextFill(Color.BLACK);
                             player1.setChance(Integer.valueOf(player1Chance.getText()));
+                        }  else {
+                            rollDice.setVisible(false);
+                            textBox.getChildren().add(text1);
                         }
                         break;
                 }
