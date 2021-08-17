@@ -107,7 +107,7 @@
                                     </Label>
                                     <ImageView fx:id="dice1Img" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dice1Img" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@dice1.jpg" />
+                                          <Image url="@dice6.jpg" />
                                        </image>
                                     </ImageView>
                                     <CheckBox fx:id="keepDice1" mnemonicParsing="false" onAction="#keepDice1" text="Keep">
@@ -129,7 +129,7 @@
                                           <Insets left="5.0" />
                                        </VBox.margin>
                                        <image>
-                                          <Image url="@dice2.jpg" />
+                                          <Image url="@dice6.jpg" />
                                        </image>
                                     </ImageView>
                                     <CheckBox fx:id="keepDice2" mnemonicParsing="false" onAction="#keepDice2" text="Keep">
@@ -151,7 +151,7 @@
                                           <Insets left="-10.0" />
                                        </VBox.margin>
                                        <image>
-                                          <Image url="@dice3.jpg" />
+                                          <Image url="@dice6.jpg" />
                                        </image>
                                     </ImageView>
                                     <CheckBox fx:id="keepDice3" mnemonicParsing="false" onAction="#keepDice3" text="Keep" />
@@ -174,7 +174,7 @@
                                     <Insets left="5.0" />
                                  </VBox.margin>
                                  <image>
-                                    <Image url="@dice4.jpg" />
+                                    <Image url="@dice6.jpg" />
                                  </image>
                               </ImageView>
                               <CheckBox fx:id="keepDice4" mnemonicParsing="false" onAction="#keepDice4" text="Keep">
@@ -196,7 +196,7 @@
                                     <Insets left="15.0" />
                                  </VBox.margin>
                                  <image>
-                                    <Image url="@dice5.jpg" />
+                                    <Image url="@dice6.jpg" />
                                  </image>
                               </ImageView>
                               <CheckBox fx:id="keepDice5" mnemonicParsing="false" onAction="#keepDice5" text="Keep">
