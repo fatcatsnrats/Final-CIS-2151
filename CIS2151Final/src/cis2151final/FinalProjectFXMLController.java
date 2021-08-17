@@ -176,11 +176,11 @@ public class FinalProjectFXMLController implements Initializable {
         if (categorySelected) {
             categorySelected = false;
             turnInt = 3;
-            if (player1Turn) {
-                player1Turn = false;
-            } else {
-                player1Turn = true;
-            }
+//            if (player1Turn) {
+//                player1Turn = false;
+//            } else {
+//                player1Turn = true;
+//            }
         }
         if (turnInt < 1) {
             if (!text1.getText().equalsIgnoreCase(temp)) {
@@ -188,7 +188,7 @@ public class FinalProjectFXMLController implements Initializable {
                 textBox.getChildren().add(text1);
             }
         } else {
-            if (!dice1Keep) {
+            if (!keepDice1.isSelected()) {
                 dice1 = rand.nextInt(5);
                 dice1++;
             }
@@ -213,7 +213,7 @@ public class FinalProjectFXMLController implements Initializable {
                     break;
             }
 
-            if (!dice2Keep) {
+            if (!keepDice2.isSelected()) {
                 dice2 = rand.nextInt(5);
                 dice2++;
             }
@@ -238,7 +238,7 @@ public class FinalProjectFXMLController implements Initializable {
                     break;
             }
 
-            if (!dice3Keep) {
+            if (!keepDice3.isSelected()) {
                 dice3 = rand.nextInt(5);
                 dice3++;
             }
@@ -263,7 +263,7 @@ public class FinalProjectFXMLController implements Initializable {
                     break;
             }
 
-            if (!dice4Keep) {
+            if (!keepDice4.isSelected()) {
                 dice4 = rand.nextInt(5);
                 dice4++;
             }
@@ -287,7 +287,7 @@ public class FinalProjectFXMLController implements Initializable {
                     dice4Img.setImage(dice6ImgFile);
             }
 
-            if (!dice5Keep) {
+            if (!keepDice5.isSelected()) {
                 dice5 = rand.nextInt(5);
                 dice5++;
             }
@@ -477,11 +477,14 @@ public class FinalProjectFXMLController implements Initializable {
 //    private void rollDice(MouseEvent event) {
 //    }
 
+    int[] categories = new int[13];
+    int[] categories1 = new int[13];
+
     @FXML
     private void confirmCategory(ActionEvent event) {
 
         turnCount.setText(String.valueOf(3));
-        
+
         player1Ones.setTextFill(Color.BLACK);
         player1Twos.setTextFill(Color.BLACK);
         player1Threes.setTextFill(Color.BLACK);
@@ -510,79 +513,177 @@ public class FinalProjectFXMLController implements Initializable {
         player2Yahtzee.setTextFill(Color.BLACK);
         player2Chance.setTextFill(Color.BLACK);
 
-        
-        
         int index = categoryList.getSelectionModel().getSelectedIndex();
+
+        int counter = 0;
         categorySelected = true;
         if (player1Turn) {
-            player1Turn = false;
-            switch (index) {
-                case 0:
-                    player1.ONES = true;
-                    player1Ones.setTextFill(Color.BLACK);
-                    player1.setOnes(Integer.valueOf(player1Ones.getText()));
-                    break;
-                case 1:
-                    player1.TWOS = false;
-                    player1Twos.setTextFill(Color.BLACK);
-                    player1.setTwos(Integer.valueOf(player1Twos.getText()));
-                    break;
-                case 2:
-                    player1.THREES = true;
-                    player1Threes.setTextFill(Color.BLACK);
-                    player1.setThrees(Integer.valueOf(player1Threes.getText()));
-                    break;
-                case 3:
-                    player1.FOURS = true;
-                    player1Fours.setTextFill(Color.BLACK);
-                    player1.setFours(Integer.valueOf(player1Fours.getText()));
-                    break;
-                case 4:
-                    player1.FIVES = true;
-                    player1Fives.setTextFill(Color.BLACK);
-                    player1.setFives(Integer.valueOf(player1Fives.getText()));
-                    break;
-                case 5:
-                    player1.SIXES = true;
-                    player1Sixes.setTextFill(Color.BLACK);
-                    player1.setSixes(Integer.valueOf(player1Sixes.getText()));
-                    break;
-                case 6:
-                    player1.THREE_OF_A_KIND = true;
-                    player1ThreeOfAKind.setTextFill(Color.BLACK);
-                    player1.setThreeOfAKind(Integer.valueOf(player1ThreeOfAKind.getText()));
-                    break;
-                case 7:
-                    player1.FOUR_OF_A_KIND = true;
-                    player1FourOfAKind.setTextFill(Color.BLACK);
-                    player1.setFourOfAKind(Integer.valueOf(player1FourOfAKind.getText()));
-                    break;
-                case 8:
-                    player1.FULL_HOUSE = true;
-                    player1FullHouse.setTextFill(Color.BLACK);
-                    player1.setFullHouse(Integer.valueOf(player1FullHouse.getText()));
-                    break;
-                case 9:
-                    player1.SMALL_STRAIGHT = true;
-                    player1SmallStraight.setTextFill(Color.BLACK);
-                    player1.setSmallStraight(Integer.valueOf(player1SmallStraight.getText()));
-                    break;
-                case 10:
-                    player1.LARGE_STRAIGHT = true;
-                    player1LargeStraight.setTextFill(Color.BLACK);
-                    player1.setLargeStraight(Integer.valueOf(player1LargeStraight.getText()));
-                    break;
-                case 11:
-                    player1.YAHTZEE = true;
-                    player1Yahtzee.setTextFill(Color.BLACK);
-                    player1.setChance(Integer.valueOf(player1Chance.getText()));
-                    break;
-                case 12:
-                    player1.CHANCE = true;
-                    player1Chance.setTextFill(Color.BLACK);
-                    player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
-                    break;
+            for (int i = 0; i < categories.length; i++) {
+                if (categories[i] == index) {
+                    counter++;
+                }
+            }
+            if (counter == 0) {
+                categories[index] = index;
+                player1Turn = false;
+                playerTurn.setText("Player 2's Turn");
+                switch (index) {
+                    case 0:
+                        if (!player1.isONES()) {
+                        player1.ONES = true;
+                        player1Ones.setTextFill(Color.BLACK);
+                        player1.setOnes(Integer.valueOf(player1Ones.getText()));
+                        }
+                        break;
+                    case 1:
+                        if (!player1.isTWOS()) {
+                        player1.TWOS = false;
+                        player1Twos.setTextFill(Color.BLACK);
+                        player1.setTwos(Integer.valueOf(player1Twos.getText()));
+                        }
+                        break;
+                    case 2:
+                        if (!player1.isTHREES()) {
+                        player1.THREES = true;
+                        player1Threes.setTextFill(Color.BLACK);
+                        player1.setThrees(Integer.valueOf(player1Threes.getText()));
+                        }
+                        break;
+                    case 3:
+                        player1.FOURS = true;
+                        player1Fours.setTextFill(Color.BLACK);
+                        player1.setFours(Integer.valueOf(player1Fours.getText()));
+                        break;
+                    case 4:
+                        player1.FIVES = true;
+                        player1Fives.setTextFill(Color.BLACK);
+                        player1.setFives(Integer.valueOf(player1Fives.getText()));
+                        break;
+                    case 5:
+                        player1.SIXES = true;
+                        player1Sixes.setTextFill(Color.BLACK);
+                        player1.setSixes(Integer.valueOf(player1Sixes.getText()));
+                        break;
+                    case 6:
+                        player1.THREE_OF_A_KIND = true;
+                        player1ThreeOfAKind.setTextFill(Color.BLACK);
+                        player1.setThreeOfAKind(Integer.valueOf(player1ThreeOfAKind.getText()));
+                        break;
+                    case 7:
+                        player1.FOUR_OF_A_KIND = true;
+                        player1FourOfAKind.setTextFill(Color.BLACK);
+                        player1.setFourOfAKind(Integer.valueOf(player1FourOfAKind.getText()));
+                        break;
+                    case 8:
+                        player1.FULL_HOUSE = true;
+                        player1FullHouse.setTextFill(Color.BLACK);
+                        player1.setFullHouse(Integer.valueOf(player1FullHouse.getText()));
+                        break;
+                    case 9:
+                        player1.SMALL_STRAIGHT = true;
+                        player1SmallStraight.setTextFill(Color.BLACK);
+                        player1.setSmallStraight(Integer.valueOf(player1SmallStraight.getText()));
+                        break;
+                    case 10:
+                        player1.LARGE_STRAIGHT = true;
+                        player1LargeStraight.setTextFill(Color.BLACK);
+                        player1.setLargeStraight(Integer.valueOf(player1LargeStraight.getText()));
+                        break;
+                    case 11:
+                        player1.YAHTZEE = true;
+                        player1Yahtzee.setTextFill(Color.BLACK);
+                        player1.setChance(Integer.valueOf(player1Chance.getText()));
+                        break;
+                    case 12:
+                        player1.CHANCE = true;
+                        player1Chance.setTextFill(Color.BLACK);
+                        player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
+                        break;
+                }
+            } else {
+//                text1.setText("You cannot selected that category more than once!");
+//                textBox.getChildren().add(text1);
+            }
 
+        } else {
+            for (int i = 0; i < categories1.length; i++) {
+                if (categories1[i] == index) {
+                    counter++;
+                }
+            }
+            if (counter == 0) {
+                player1Turn = true;
+                playerTurn.setText("Player 1's Turn");
+                switch (index) {
+                    case 0:
+                        player2.ONES = true;
+                        player2Ones.setTextFill(Color.BLACK);
+                        player2.setOnes(Integer.valueOf(player2Ones.getText()));
+                        break;
+                    case 1:
+                        player2.TWOS = false;
+                        player2Twos.setTextFill(Color.BLACK);
+                        player2.setTwos(Integer.valueOf(player2Twos.getText()));
+                        break;
+                    case 2:
+                        player2.THREES = true;
+                        player2Threes.setTextFill(Color.BLACK);
+                        player2.setThrees(Integer.valueOf(player2Threes.getText()));
+                        break;
+                    case 3:
+                        player2.FOURS = true;
+                        player2Fours.setTextFill(Color.BLACK);
+                        player2.setFours(Integer.valueOf(player2Fours.getText()));
+                        break;
+                    case 4:
+                        player2.FIVES = true;
+                        player2Fives.setTextFill(Color.BLACK);
+                        player2.setFives(Integer.valueOf(player2Fives.getText()));
+                        break;
+                    case 5:
+                        player2.SIXES = true;
+                        player2Sixes.setTextFill(Color.BLACK);
+                        player2.setSixes(Integer.valueOf(player2Sixes.getText()));
+                        break;
+                    case 6:
+                        player2.THREE_OF_A_KIND = true;
+                        player2ThreeOfAKind.setTextFill(Color.BLACK);
+                        player2.setThreeOfAKind(Integer.valueOf(player2ThreeOfAKind.getText()));
+                        break;
+                    case 7:
+                        player2.FOUR_OF_A_KIND = true;
+                        player2FourOfAKind.setTextFill(Color.BLACK);
+                        player2.setFourOfAKind(Integer.valueOf(player2FourOfAKind.getText()));
+                        break;
+                    case 8:
+                        player2.FULL_HOUSE = true;
+                        player2FullHouse.setTextFill(Color.BLACK);
+                        player2.setFullHouse(Integer.valueOf(player2FullHouse.getText()));
+                        break;
+                    case 9:
+                        player2.SMALL_STRAIGHT = true;
+                        player2SmallStraight.setTextFill(Color.BLACK);
+                        player2.setSmallStraight(Integer.valueOf(player2SmallStraight.getText()));
+                        break;
+                    case 10:
+                        player2.LARGE_STRAIGHT = true;
+                        player2LargeStraight.setTextFill(Color.BLACK);
+                        player2.setLargeStraight(Integer.valueOf(player2LargeStraight.getText()));
+                        break;
+                    case 11:
+                        player2.YAHTZEE = true;
+                        player2Yahtzee.setTextFill(Color.BLACK);
+                        player2.setChance(Integer.valueOf(player2Chance.getText()));
+                        break;
+                    case 12:
+                        player2.CHANCE = true;
+                        player2Chance.setTextFill(Color.BLACK);
+                        player2.setYahtzee(Integer.valueOf(player2Yahtzee.getText()));
+                        break;
+                }
+            } else {
+//                text1.setText("You cannot selected that category more than once!");
+//                textBox.getChildren().add(text1);
             }
         }
 
