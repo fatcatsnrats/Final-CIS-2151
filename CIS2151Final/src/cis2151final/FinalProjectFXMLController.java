@@ -526,6 +526,8 @@ public class FinalProjectFXMLController implements Initializable {
         keepDice4.setSelected(false);
         keepDice5.setSelected(false);
 
+        updateDisplayInitialize();
+
         if (player1Turn) {
             player1Turn = false;
         } else {
@@ -556,8 +558,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 0:
                         if (!player1.isONES()) {
                             player1.ONES = true;
-                            categorySuccess(string2);
                             player1.setOnes(Integer.valueOf(player1Ones.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -565,8 +567,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 1:
                         if (!player1.isTWOS()) {
                             player1.TWOS = true;
-                            categorySuccess(string2);
                             player1.setTwos(Integer.valueOf(player1Twos.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -574,8 +576,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 2:
                         if (!player1.isTHREES()) {
                             player1.THREES = true;
-                            categorySuccess(string2);
                             player1.setThrees(Integer.valueOf(player1Threes.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -583,8 +585,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 3:
                         if (!player1.isFOURS()) {
                             player1.FOURS = true;
-                            categorySuccess(string2);
                             player1.setFours(Integer.valueOf(player1Fours.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -592,8 +594,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 4:
                         if (!player1.isFIVES()) {
                             player1.FIVES = true;
-                            categorySuccess(string2);
                             player1.setFives(Integer.valueOf(player1Fives.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -601,8 +603,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 5:
                         if (!player1.isSIXES()) {
                             player1.SIXES = true;
-                            categorySuccess(string2);
                             player1.setSixes(Integer.valueOf(player1Sixes.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -610,8 +612,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 6:
                         if (!player1.isTHREE_OF_A_KIND()) {
                             player1.THREE_OF_A_KIND = true;
-                            categorySuccess(string2);
                             player1.setThreeOfAKind(Integer.valueOf(player1ThreeOfAKind.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -619,8 +621,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 7:
                         if (!player1.isFOUR_OF_A_KIND()) {
                             player1.FOUR_OF_A_KIND = true;
-                            categorySuccess(string2);
                             player1.setFourOfAKind(Integer.valueOf(player1FourOfAKind.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -628,8 +630,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 8:
                         if (!player1.isFULL_HOUSE()) {
                             player1.FULL_HOUSE = true;
-                            categorySuccess(string2);
                             player1.setFullHouse(Integer.valueOf(player1FullHouse.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -637,8 +639,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 9:
                         if (!player1.isSMALL_STRAIGHT()) {
                             player1.SMALL_STRAIGHT = true;
-                            categorySuccess(string2);
                             player1.setSmallStraight(Integer.valueOf(player1SmallStraight.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -646,8 +648,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 10:
                         if (!player1.isLARGE_STRAIGHT()) {
                             player1.LARGE_STRAIGHT = true;
-                            categorySuccess(string2);
                             player1.setLargeStraight(Integer.valueOf(player1LargeStraight.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -655,8 +657,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 11:
                         if (!player1.isCHANCE()) {
                             player1.CHANCE = true;
-                            categorySuccess(string2);
                             player1.setChance(Integer.valueOf(player1Chance.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -664,8 +666,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 12:
                         if (!player1.isYAHTZEE()) {
                             player1.YAHTZEE = true;
-                            categorySuccess(string2);
                             player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
+                            categorySuccess(string2);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -689,8 +691,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 0:
                         if (!player2.isONES()) {
                             player2.ONES = true;
-                            categorySuccess(string1);
                             player2.setOnes(Integer.valueOf(player2Ones.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -698,8 +700,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 1:
                         if (!player2.isTWOS()) {
                             player2.TWOS = true;
-                            categorySuccess(string1);
                             player2.setTwos(Integer.valueOf(player2Twos.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -707,8 +709,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 2:
                         if (!player2.isTHREES()) {
                             player2.THREES = true;
-                            categorySuccess(string1);
                             player2.setThrees(Integer.valueOf(player2Threes.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -716,8 +718,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 3:
                         if (!player2.isFOURS()) {
                             player2.FOURS = true;
-                            categorySuccess(string1);
                             player2.setFours(Integer.valueOf(player2Fours.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -725,8 +727,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 4:
                         if (!player2.isFIVES()) {
                             player2.FIVES = true;
-                            categorySuccess(string1);
                             player2.setFives(Integer.valueOf(player2Fives.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -734,8 +736,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 5:
                         if (!player2.isSIXES()) {
                             player2.SIXES = true;
-                            categorySuccess(string1);
                             player2.setSixes(Integer.valueOf(player2Sixes.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -743,8 +745,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 6:
                         if (!player2.isTHREE_OF_A_KIND()) {
                             player2.THREE_OF_A_KIND = true;
-                            categorySuccess(string1);
                             player2.setThreeOfAKind(Integer.valueOf(player2ThreeOfAKind.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -752,8 +754,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 7:
                         if (!player2.isFOUR_OF_A_KIND()) {
                             player2.FOUR_OF_A_KIND = true;
-                            categorySuccess(string1);
                             player2.setFourOfAKind(Integer.valueOf(player2FourOfAKind.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -761,8 +763,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 8:
                         if (!player2.isFULL_HOUSE()) {
                             player2.FULL_HOUSE = true;
-                            categorySuccess(string1);
                             player2.setFullHouse(Integer.valueOf(player2FullHouse.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -770,8 +772,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 9:
                         if (!player2.isSMALL_STRAIGHT()) {
                             player2.SMALL_STRAIGHT = true;
-                            categorySuccess(string1);
                             player2.setSmallStraight(Integer.valueOf(player2SmallStraight.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -779,8 +781,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 10:
                         if (!player2.isLARGE_STRAIGHT()) {
                             player2.LARGE_STRAIGHT = true;
-                            categorySuccess(string1);
                             player2.setLargeStraight(Integer.valueOf(player2LargeStraight.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -788,8 +790,8 @@ public class FinalProjectFXMLController implements Initializable {
                     case 11:
                         if (!player2.isCHANCE()) {
                             player2.CHANCE = true;
-                            categorySuccess(string1);
                             player2.setChance(Integer.valueOf(player2Chance.getText()));
+                            categorySuccess(string1);
                         } else {
                             textBox1.setText(temp);
                         }
@@ -797,6 +799,7 @@ public class FinalProjectFXMLController implements Initializable {
                     case 12:
                         if (!player2.isYAHTZEE()) {
                             player2.YAHTZEE = true;
+                            player2.setYahtzee(Integer.valueOf(player2Yahtzee.getText()));
                             categorySuccess(string1);
                             player2.setYahtzee(Integer.valueOf(player2Yahtzee.getText()));
                         } else {
@@ -815,7 +818,6 @@ public class FinalProjectFXMLController implements Initializable {
         counter++;
         player1Total.setText(String.valueOf(player1.total()));
         player2Total.setText(String.valueOf(player2.total()));
-        updateDisplayInitialize();
     }
 
     @FXML
