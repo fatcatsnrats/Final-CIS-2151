@@ -167,7 +167,7 @@ public class FinalProjectFXMLController implements Initializable {
         dice5Keep = true;
     }
 
-    public Random rand = new Random();
+    public static Random rand = new Random();
     public boolean dice1Keep, dice2Keep, dice3Keep, dice4Keep, dice5Keep;
     public int dice1, dice2, dice3, dice4, dice5;
     public int turnInt = 3;
@@ -177,8 +177,9 @@ public class FinalProjectFXMLController implements Initializable {
 
     @FXML
     private void rollDice(ActionEvent event) {
+        textBox1.setText("");
+        textBox2.setText("");
 
-        Random rand = new Random();
         String temp = "You ran out of rolls! Select a category to get,"
                 + " your points!";
         if (categorySelected) {
@@ -514,6 +515,16 @@ public class FinalProjectFXMLController implements Initializable {
         textBox1.setText("");
         textBox2.setText("");
         categorySelected = true;
+        dice1Keep = false;
+        dice2Keep = false;
+        dice3Keep = false;
+        dice4Keep = false;
+        dice5Keep = false;
+        keepDice1.setSelected(false);
+        keepDice2.setSelected(false);
+        keepDice3.setSelected(false);
+        keepDice4.setSelected(false);
+        keepDice5.setSelected(false);
 
         if (player1Turn) {
             player1Turn = false;
@@ -529,8 +540,8 @@ public class FinalProjectFXMLController implements Initializable {
 
         int index = categoryList.getSelectionModel().getSelectedIndex();
 
-        String temp = "You have already chosen that category,";
-        String temp1 = "please select another category.";
+        String temp = "You have already chosen that category,"
+                + " please select another category.";
         String string1 = "Player 1's Turn";
         String string2 = "Player 2's Turn";
         if (player1Turn) {
@@ -548,9 +559,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setOnes(Integer.valueOf(player1Ones.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 1:
@@ -559,9 +568,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setTwos(Integer.valueOf(player1Twos.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 2:
@@ -570,9 +577,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setThrees(Integer.valueOf(player1Threes.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 3:
@@ -581,9 +586,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setFours(Integer.valueOf(player1Fours.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 4:
@@ -592,9 +595,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setFives(Integer.valueOf(player1Fives.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 5:
@@ -603,9 +604,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setSixes(Integer.valueOf(player1Sixes.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 6:
@@ -614,9 +613,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setThreeOfAKind(Integer.valueOf(player1ThreeOfAKind.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 7:
@@ -625,9 +622,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setFourOfAKind(Integer.valueOf(player1FourOfAKind.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 8:
@@ -636,9 +631,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setFullHouse(Integer.valueOf(player1FullHouse.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 9:
@@ -647,9 +640,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setSmallStraight(Integer.valueOf(player1SmallStraight.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 10:
@@ -658,9 +649,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setLargeStraight(Integer.valueOf(player1LargeStraight.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 11:
@@ -669,9 +658,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setChance(Integer.valueOf(player1Chance.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 12:
@@ -680,9 +667,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string2);
                             player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                 }
@@ -707,9 +692,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setOnes(Integer.valueOf(player2Ones.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 1:
@@ -718,9 +701,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setTwos(Integer.valueOf(player2Twos.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 2:
@@ -729,9 +710,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setThrees(Integer.valueOf(player2Threes.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 3:
@@ -740,9 +719,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setFours(Integer.valueOf(player2Fours.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 4:
@@ -751,9 +728,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setFives(Integer.valueOf(player2Fives.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 5:
@@ -762,9 +737,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setSixes(Integer.valueOf(player2Sixes.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 6:
@@ -773,9 +746,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setThreeOfAKind(Integer.valueOf(player2ThreeOfAKind.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 7:
@@ -784,9 +755,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setFourOfAKind(Integer.valueOf(player2FourOfAKind.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 8:
@@ -795,9 +764,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setFullHouse(Integer.valueOf(player2FullHouse.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 9:
@@ -806,9 +773,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setSmallStraight(Integer.valueOf(player2SmallStraight.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 10:
@@ -817,9 +782,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setLargeStraight(Integer.valueOf(player2LargeStraight.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 11:
@@ -828,9 +791,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setChance(Integer.valueOf(player2Chance.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                     case 12:
@@ -839,9 +800,7 @@ public class FinalProjectFXMLController implements Initializable {
                             categorySuccess(string1);
                             player2.setYahtzee(Integer.valueOf(player2Yahtzee.getText()));
                         } else {
-                            rollDice.setVisible(false);
                             textBox1.setText(temp);
-                            textBox2.setText(temp1);
                         }
                         break;
                 }
@@ -854,16 +813,6 @@ public class FinalProjectFXMLController implements Initializable {
         }
 
         counter++;
-        dice1Keep = false;
-        dice2Keep = false;
-        dice3Keep = false;
-        dice4Keep = false;
-        dice5Keep = false;
-        keepDice1.setSelected(false);
-        keepDice2.setSelected(false);
-        keepDice3.setSelected(false);
-        keepDice4.setSelected(false);
-        keepDice5.setSelected(false);
         player1Total.setText(String.valueOf(player1.total()));
         player2Total.setText(String.valueOf(player2.total()));
         updateDisplayInitialize();
@@ -888,8 +837,20 @@ public class FinalProjectFXMLController implements Initializable {
 
     public void playAgain() {
         counter = 0;
-        textBox1.setText("Roll the dice to play again.");
-        textBox2.setText("");
+        String temp;
+        if (player1.total() > player2.total()) {
+            temp = "Player 1 won the game with "
+                    + String.valueOf(player1.totalScore) + " points!";
+        } else if (player1.total() < player2.total()) {
+            temp = "Player 2 won the game with "
+                    + String.valueOf(player2.totalScore) + " points!";
+        } else {
+            temp = "This game was a draw!!! Both players got "
+                    + String.valueOf(player1.totalScore) + " points!";
+        }
+
+        textBox1.setText(temp);
+        textBox2.setText("Roll the dice to play again.");
         textBox3.setText("");
         textBox4.setText("");
         textBox5.setText("");
@@ -1007,7 +968,7 @@ public class FinalProjectFXMLController implements Initializable {
         dice4Keep = false;
         dice5Keep = false;
 
-        textBox1.setText("");
+        textBox1.setText("Roll the dice to start the game!");
         textBox2.setText("");
         textBox3.setText("");
         textBox4.setText("");
