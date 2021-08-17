@@ -28,13 +28,13 @@ public class Player {
     public int chance;
     public int totalScore;
     
-    public String ONES, TWOS, THREES, FOURS, FIVES, SIXES, SUM, BONUS,
+    public boolean ONES, TWOS, THREES, FOURS, FIVES, SIXES, SUM, BONUS,
             THREE_OF_A_KIND, FOUR_OF_A_KIND, FULL_HOUSE, SMALL_STRAIGHT, LARGE_STRAIGHT,
-            CHANCE, YAHTZEE, TOTAL_SCORE;
-
-    public ArrayList<String> score = new ArrayList<String>();
-    public ArrayList<Integer> scoreInt = new ArrayList<Integer>();
-    public ArrayList<Integer> scoreInt1 = new ArrayList<Integer>();
+            CHANCE, YAHTZEE, TOTAL_SCORE = false;
+//
+//    public ArrayList<String> score = new ArrayList<String>();
+//    public ArrayList<Integer> scoreInt = new ArrayList<Integer>();
+//    public ArrayList<Integer> scoreInt1 = new ArrayList<Integer>();
 
     public Player() {
         ones = 0;
@@ -51,21 +51,21 @@ public class Player {
         yahtzee = 0;
         chance = 0;
         totalScore = 0;
-
-        scoreInt.add(ones);
-        scoreInt.add(twos);
-        scoreInt.add(threes);
-        scoreInt.add(fours);
-        scoreInt.add(fives);
-        scoreInt.add(sixes);
-        scoreInt.add(threeOfAKind);
-        scoreInt.add(fourOfAKind);
-        scoreInt.add(fullHouse);
-        scoreInt.add(smallStraight);
-        scoreInt.add(largeStraight);
-        scoreInt.add(yahtzee);
-        scoreInt.add(chance);
-        scoreInt.add(totalScore);
+//
+//        scoreInt.add(ones);
+//        scoreInt.add(twos);
+//        scoreInt.add(threes);
+//        scoreInt.add(fours);
+//        scoreInt.add(fives);
+//        scoreInt.add(sixes);
+//        scoreInt.add(threeOfAKind);
+//        scoreInt.add(fourOfAKind);
+//        scoreInt.add(fullHouse);
+//        scoreInt.add(smallStraight);
+//        scoreInt.add(largeStraight);
+//        scoreInt.add(yahtzee);
+//        scoreInt.add(chance);
+//        scoreInt.add(totalScore);
 //
 //        scoreInt1.add(ones);
 //        scoreInt1.add(twos);
@@ -85,188 +85,149 @@ public class Player {
     }
 
     public Player(String trash) {
-        ONES = " ONES";
-        TWOS = " TWOS";
-        THREES = " THREES";
-        FOURS = " FOURS";
-        FIVES = " FIVES";
-        SIXES = " SIXES";
-        THREE_OF_A_KIND = " THREE_OF_A_KIND";
-        FOUR_OF_A_KIND = " FOUR_OF_A_KIND";
-        FULL_HOUSE = " FULL_HOUSE";
-        SMALL_STRAIGHT = " SMALL_STRAIGHT";
-        LARGE_STRAIGHT = " LARGE_STRAIGHT";
-        YAHTZEE = " YAHTZEE";
-        CHANCE = " CHANCE";
-        TOTAL_SCORE = " TOTAL_SCORE";
-        score.add(ONES);
-        score.add(TWOS);
-        score.add(THREES);
-        score.add(FOURS);
-        score.add(FIVES);
-        score.add(SIXES);
-        score.add(THREE_OF_A_KIND);
-        score.add(FOUR_OF_A_KIND);
-        score.add(FULL_HOUSE);
-        score.add(SMALL_STRAIGHT);
-        score.add(LARGE_STRAIGHT);
-        score.add(YAHTZEE);
-        score.add(CHANCE);
-        score.add(TOTAL_SCORE);
+//        ONES = " ONES";
+//        TWOS = " TWOS";
+//        THREES = " THREES";
+//        FOURS = " FOURS";
+//        FIVES = " FIVES";
+//        SIXES = " SIXES";
+//        THREE_OF_A_KIND = " THREE_OF_A_KIND";
+//        FOUR_OF_A_KIND = " FOUR_OF_A_KIND";
+//        FULL_HOUSE = " FULL_HOUSE";
+//        SMALL_STRAIGHT = " SMALL_STRAIGHT";
+//        LARGE_STRAIGHT = " LARGE_STRAIGHT";
+//        YAHTZEE = " YAHTZEE";
+//        CHANCE = " CHANCE";
+//        TOTAL_SCORE = " TOTAL_SCORE";
+//        score.add(ONES);
+//        score.add(TWOS);
+//        score.add(THREES);
+//        score.add(FOURS);
+//        score.add(FIVES);
+//        score.add(SIXES);
+//        score.add(THREE_OF_A_KIND);
+//        score.add(FOUR_OF_A_KIND);
+//        score.add(FULL_HOUSE);
+//        score.add(SMALL_STRAIGHT);
+//        score.add(LARGE_STRAIGHT);
+//        score.add(YAHTZEE);
+//        score.add(CHANCE);
+//        score.add(TOTAL_SCORE);
     }
 
-    public String getONES() {
+    public boolean isONES() {
         return ONES;
     }
 
-    public void setONES(String ONES) {
+    public void setONES(boolean ONES) {
         this.ONES = ONES;
     }
 
-    public String getTWOS() {
+    public boolean isTWOS() {
         return TWOS;
     }
 
-    public void setTWOS(String TWOS) {
+    public void setTWOS(boolean TWOS) {
         this.TWOS = TWOS;
     }
 
-    public String getTHREES() {
+    public boolean isTHREES() {
         return THREES;
     }
 
-    public void setTHREES(String THREES) {
+    public void setTHREES(boolean THREES) {
         this.THREES = THREES;
     }
 
-    public String getFOURS() {
+    public boolean isFOURS() {
         return FOURS;
     }
 
-    public void setFOURS(String FOURS) {
+    public void setFOURS(boolean FOURS) {
         this.FOURS = FOURS;
     }
 
-    public String getFIVES() {
+    public boolean isFIVES() {
         return FIVES;
     }
 
-    public void setFIVES(String FIVES) {
+    public void setFIVES(boolean FIVES) {
         this.FIVES = FIVES;
     }
 
-    public String getSIXES() {
+    public boolean isSIXES() {
         return SIXES;
     }
 
-    public void setSIXES(String SIXES) {
+    public void setSIXES(boolean SIXES) {
         this.SIXES = SIXES;
     }
 
-    public String getSUM() {
-        return SUM;
-    }
-
-    public void setSUM(String SUM) {
-        this.SUM = SUM;
-    }
-
-    public String getBONUS() {
-        return BONUS;
-    }
-
-    public void setBONUS(String BONUS) {
-        this.BONUS = BONUS;
-    }
-
-    public String getTHREE_OF_A_KIND() {
+    public boolean isTHREE_OF_A_KIND() {
         return THREE_OF_A_KIND;
     }
 
-    public void setTHREE_OF_A_KIND(String THREE_OF_A_KIND) {
+    public void setTHREE_OF_A_KIND(boolean THREE_OF_A_KIND) {
         this.THREE_OF_A_KIND = THREE_OF_A_KIND;
     }
 
-    public String getFOUR_OF_A_KIND() {
+    public boolean isFOUR_OF_A_KIND() {
         return FOUR_OF_A_KIND;
     }
 
-    public void setFOUR_OF_A_KIND(String FOUR_OF_A_KIND) {
+    public void setFOUR_OF_A_KIND(boolean FOUR_OF_A_KIND) {
         this.FOUR_OF_A_KIND = FOUR_OF_A_KIND;
     }
 
-    public String getFULL_HOUSE() {
+    public boolean isFULL_HOUSE() {
         return FULL_HOUSE;
     }
 
-    public void setFULL_HOUSE(String FULL_HOUSE) {
+    public void setFULL_HOUSE(boolean FULL_HOUSE) {
         this.FULL_HOUSE = FULL_HOUSE;
     }
 
-    public String getSMALL_STRAIGHT() {
+    public boolean isSMALL_STRAIGHT() {
         return SMALL_STRAIGHT;
     }
 
-    public void setSMALL_STRAIGHT(String SMALL_STRAIGHT) {
+    public void setSMALL_STRAIGHT(boolean SMALL_STRAIGHT) {
         this.SMALL_STRAIGHT = SMALL_STRAIGHT;
     }
 
-    public String getLARGE_STRAIGHT() {
+    public boolean isLARGE_STRAIGHT() {
         return LARGE_STRAIGHT;
     }
 
-    public void setLARGE_STRAIGHT(String LARGE_STRAIGHT) {
+    public void setLARGE_STRAIGHT(boolean LARGE_STRAIGHT) {
         this.LARGE_STRAIGHT = LARGE_STRAIGHT;
     }
 
-    public String getCHANCE() {
+    public boolean isCHANCE() {
         return CHANCE;
     }
 
-    public void setCHANCE(String CHANCE) {
+    public void setCHANCE(boolean CHANCE) {
         this.CHANCE = CHANCE;
     }
 
-    public String getYAHTZEE() {
+    public boolean isYAHTZEE() {
         return YAHTZEE;
     }
 
-    public void setYAHTZEE(String YAHTZEE) {
+    public void setYAHTZEE(boolean YAHTZEE) {
         this.YAHTZEE = YAHTZEE;
     }
 
-    public String getTOTAL_SCORE() {
+    public boolean isTOTAL_SCORE() {
         return TOTAL_SCORE;
     }
 
-    public void setTOTAL_SCORE(String TOTAL_SCORE) {
+    public void setTOTAL_SCORE(boolean TOTAL_SCORE) {
         this.TOTAL_SCORE = TOTAL_SCORE;
     }
 
-    public ArrayList<String> getScore() {
-        return score;
-    }
-
-    public void setScore(ArrayList<String> score) {
-        this.score = score;
-    }
-
-    public ArrayList<Integer> getScoreInt() {
-        return scoreInt;
-    }
-
-    public void setScoreInt(ArrayList<Integer> scoreInt) {
-        this.scoreInt = scoreInt;
-    }
-
-    public ArrayList<Integer> getScoreInt1() {
-        return scoreInt1;
-    }
-
-    public void setScoreInt1(ArrayList<Integer> scoreInt1) {
-        this.scoreInt1 = scoreInt1;
-    }
-
+   
     public int getOnes() {
         return ones;
     }

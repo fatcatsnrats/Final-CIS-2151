@@ -314,18 +314,21 @@ public class FinalProjectFXMLController implements Initializable {
 
     public void displayScore() {
         if (player1Turn) {
+            if (!player1.ONES) {
             player1Ones.setText(String.valueOf(sum(1)));
-            player1Twos.setText(String.valueOf(sum(1)));
-            player1Ones.setText(String.valueOf(sum(1)));
-            player1Ones.setText(String.valueOf(sum(1)));
-            player1Ones.setText(String.valueOf(sum(1)));
-            player1Ones.setText(String.valueOf(sum(1)));
-            player1Ones.setText(String.valueOf(sum(1)));
-            player1Ones.setText(String.valueOf(sum(1)));
-            player1Ones.setText(String.valueOf(sum(1)));
-            player1Ones.setText(String.valueOf(sum(1)));
-            player1Ones.setText(String.valueOf(sum(1)));
-            player1Ones.setText(String.valueOf(sum(1)));
+            }
+            if (player1.TWOS) {
+            player1Twos.setText(String.valueOf(sum(2)));
+            }
+            
+            player1Threes.setText(String.valueOf(sum(3)));
+            player1Fours.setText(String.valueOf(sum(4)));
+            player1Fives.setText(String.valueOf(sum(5)));
+            player1Sixes.setText(String.valueOf(sum(6)));
+            player1ThreeOfAKind.setText(String.valueOf(ofAKind(3)));
+            player1FourOfAKind.setText(String.valueOf(ofAKind(4)));
+            
+
             
         } else {
 
@@ -373,6 +376,24 @@ public class FinalProjectFXMLController implements Initializable {
             }
         }
         return count * n;
+    }
+    
+    public int ofAKind(int n) {
+        int [] freq = frequency();
+        for (int i = 0; i < freq.length; i++) {
+            if (freq[i] == n) {
+                return dice1 + dice2 + dice3 + dice4 + dice5;
+            }
+        }
+        return 0;
+    }
+    
+    public int[] frequency() {
+        int[] freq = new int[6];
+        for (int i = 0; i < 6; i++) {
+            freq[diceArray[i]-1]++;
+        }
+        return freq;
     }
 
     public void updateDisplayInitialize() {
