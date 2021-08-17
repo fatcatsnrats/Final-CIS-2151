@@ -15,12 +15,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
@@ -43,11 +45,11 @@ public class FinalProjectFXMLController implements Initializable {
     @FXML
     private ImageView dice1Img;
     @FXML
-    private ToggleButton keepDice1;
+    private CheckBox keepDice1;
     @FXML
-    private Button keepDice2;
+    private CheckBox keepDice2;
     @FXML
-    private Button keepDice3;
+    private CheckBox keepDice3;
     @FXML
     private Label playerTurn;
     @FXML
@@ -57,11 +59,11 @@ public class FinalProjectFXMLController implements Initializable {
     @FXML
     private ImageView dice4Img;
     @FXML
-    private Button keepDice4;
+    private CheckBox keepDice4;
     @FXML
     private ImageView dice5Img;
     @FXML
-    private Button keepDice5;
+    private CheckBox keepDice5;
     @FXML
     private Button rollDice;
 
@@ -162,15 +164,17 @@ public class FinalProjectFXMLController implements Initializable {
     public int turnInt = 3;
     public Text text1 = new Text("Welcome to Yahtzee");
     public Text text2 = new Text("Roll the dice when you are ready to play!");
-    public int[] diceArray = new int[5];
+    public int[] diceArray = new int[6];
     public boolean player1Turn;
+    public boolean categorySelected = false;
 
     @FXML
     private void rollDice(ActionEvent event) {
         Random rand = new Random();
         String temp = "You ran out of rolls! Select a category to get,"
                 + " your points!";
-        if (turnInt < 1) {
+        if (turnInt < 1 || categorySelected) {
+            categorySelected = false;
             if (!text1.getText().equalsIgnoreCase(temp)) {
                 text1.setText(temp);
                 textBox.getChildren().add(text1);
@@ -314,30 +318,141 @@ public class FinalProjectFXMLController implements Initializable {
 
     public void displayScore() {
         if (player1Turn) {
-            if (!player1.ONES) {
-            player1Ones.setText(String.valueOf(sum(1)));
+            if (!player1.isONES()) {
+                player1Ones.setTextFill(Color.RED);
+                player1Ones.setText(String.valueOf(sum(1)));
             }
-            if (player1.TWOS) {
-            player1Twos.setText(String.valueOf(sum(2)));
+            if (!player1.isTWOS()) {
+                player1Twos.setTextFill(Color.RED);
+                player1Twos.setText(String.valueOf(sum(2)));
             }
-            
-            player1Threes.setText(String.valueOf(sum(3)));
-            player1Fours.setText(String.valueOf(sum(4)));
-            player1Fives.setText(String.valueOf(sum(5)));
-            player1Sixes.setText(String.valueOf(sum(6)));
-            player1ThreeOfAKind.setText(String.valueOf(ofAKind(3)));
-            player1FourOfAKind.setText(String.valueOf(ofAKind(4)));
-            
+            if (!player1.isTHREES()) {
+                player1Threes.setTextFill(Color.RED);
+                player1Threes.setText(String.valueOf(sum(3)));
+            }
+            if (!player1.isFOURS()) {
+                player1Fours.setTextFill(Color.RED);
+                player1Fours.setText(String.valueOf(sum(4)));
+            }
+            if (!player1.isFIVES()) {
+                player1Fives.setTextFill(Color.RED);
+                player1Fives.setText(String.valueOf(sum(5)));
+            }
+            if (!player1.isSIXES()) {
+                player1Sixes.setTextFill(Color.RED);
+                player1Sixes.setText(String.valueOf(sum(6)));
+            }
+            if (!player1.isTHREE_OF_A_KIND()) {
+                player1ThreeOfAKind.setTextFill(Color.RED);
+                player1ThreeOfAKind.setText(String.valueOf(ofAKind(3, false)));
+            }
+            if (!player1.isFOUR_OF_A_KIND()) {
+                player1FourOfAKind.setTextFill(Color.RED);
+                player1FourOfAKind.setText(String.valueOf(ofAKind(4, false)));
+            }
+            if (!player1.isFULL_HOUSE()) {
+                player1FullHouse.setTextFill(Color.RED);
+                if (ofAKind(3, true) > 0 && ofAKind(2, true) > 0) {
+                    player1FullHouse.setText(String.valueOf(25));
+                } else {
+                    player1FullHouse.setText(String.valueOf(0));
 
-            
+                }
+            }
+            if (!player1.isSMALL_STRAIGHT()) {
+                player1SmallStraight.setTextFill(Color.RED);
+                if (isStraight(4)) {
+                    player1SmallStraight.setText(String.valueOf(30));
+                } else {
+                    player1SmallStraight.setText(String.valueOf(0));
+                }
+            }
+            if (!player1.isLARGE_STRAIGHT()) {
+                player1LargeStraight.setTextFill(Color.RED);
+                if (isStraight(5)) {
+                    player1LargeStraight.setText(String.valueOf(40));
+                } else {
+                    player1LargeStraight.setText(String.valueOf(0));
+                }
+            }
+            if (!player1.isYAHTZEE()) {
+                player1Yahtzee.setTextFill(Color.RED);
+                player1Yahtzee.setText(String.valueOf(ofAKind(5, true)));
+            }
+            if (player1.isCHANCE()) {
+                player1Chance.setTextFill(Color.RED);
+                player1Chance.setText(String.valueOf(dice1 + dice2 + dice3 + dice4 + dice5));
+            }
+
         } else {
+            if (!player2.isONES()) {
+                player2Ones.setTextFill(Color.RED);
+                player2Ones.setText(String.valueOf(sum(1)));
+            }
+            if (!player2.isTWOS()) {
+                player2Twos.setTextFill(Color.RED);
+                player2Twos.setText(String.valueOf(sum(2)));
+            }
+            if (!player2.isTHREES()) {
+                player2Threes.setTextFill(Color.RED);
+                player2Threes.setText(String.valueOf(sum(3)));
+            }
+            if (!player2.isFOURS()) {
+                player2Fours.setTextFill(Color.RED);
+                player2Fours.setText(String.valueOf(sum(4)));
+            }
+            if (!player2.isFIVES()) {
+                player2Fives.setTextFill(Color.RED);
+                player2Fives.setText(String.valueOf(sum(5)));
+            }
+            if (!player2.isSIXES()) {
+                player2Sixes.setTextFill(Color.RED);
+                player2Sixes.setText(String.valueOf(sum(6)));
+            }
+            if (!player2.isTHREE_OF_A_KIND()) {
+                player2ThreeOfAKind.setTextFill(Color.RED);
+                player2ThreeOfAKind.setText(String.valueOf(ofAKind(3, false)));
+            }
+            if (!player2.isFOUR_OF_A_KIND()) {
+                player2FourOfAKind.setTextFill(Color.RED);
+                player2FourOfAKind.setText(String.valueOf(ofAKind(4, false)));
+            }
+            if (!player2.isFULL_HOUSE()) {
+                player2FullHouse.setTextFill(Color.RED);
+                if (ofAKind(3, true) > 0 && ofAKind(2, true) > 0) {
+                    player2FullHouse.setText(String.valueOf(25));
+                } else {
+                    player2FullHouse.setText(String.valueOf(0));
+
+                }
+            }
+            if (!player2.isSMALL_STRAIGHT()) {
+                player2SmallStraight.setTextFill(Color.RED);
+                if (isStraight(4)) {
+                    player2SmallStraight.setText(String.valueOf(30));
+                } else {
+                    player2SmallStraight.setText(String.valueOf(0));
+                }
+            }
+            if (!player2.isLARGE_STRAIGHT()) {
+                player2LargeStraight.setTextFill(Color.RED);
+                if (isStraight(5)) {
+                    player2LargeStraight.setText(String.valueOf(40));
+                } else {
+                    player2LargeStraight.setText(String.valueOf(0));
+                }
+            }
+            if (!player2.isYAHTZEE()) {
+                player2Yahtzee.setTextFill(Color.RED);
+                player2Yahtzee.setText(String.valueOf(ofAKind(5, true)));
+            }
+            if (player2.isCHANCE()) {
+                player2Chance.setTextFill(Color.RED);
+                player2Chance.setText(String.valueOf(dice1 + dice2 + dice3 + dice4 + dice5));
+            }
 
         }
-        if (player1Turn) {
-            player1Turn = false;
-        } else {
-            player1Turn = true;
-        }
+
     }
 
     @FXML
@@ -370,28 +485,59 @@ public class FinalProjectFXMLController implements Initializable {
 
     public int sum(int n) {
         int count = 0;
-        for (int i = 0; i >= diceArray.length; i++) {
+        for (int i = 0; i < diceArray.length; i++) {
             if (diceArray[i] == n) {
                 count++;
             }
         }
         return count * n;
     }
-    
-    public int ofAKind(int n) {
-        int [] freq = frequency();
+
+    public boolean isStraight(int n) {
+        int[] freq = frequency();
+        for (int i = 0; i < (freq.length - n + 1); i++) {
+            int nInARow = 0;
+            for (int j = 0; j < n; j++) {
+                if (freq[i + j] > 0) {
+                    nInARow++;
+                }
+            }
+            if (nInARow == n) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public int ofAKind(int n, boolean exact) {
+        int[] freq = frequency();
         for (int i = 0; i < freq.length; i++) {
-            if (freq[i] == n) {
-                return dice1 + dice2 + dice3 + dice4 + dice5;
+            if (exact) {
+                if (freq[i] == n) {
+                    if (n == 5) {
+                        return 50;
+                    } else {
+                        return dice1 + dice2 + dice3 + dice4 + dice5;
+                    }
+                }
+            } else {
+                if (freq[i] >= n) {
+                    if (n == 5) {
+                        return 50;
+                    } else {
+                        return dice1 + dice2 + dice3 + dice4 + dice5;
+                    }
+                }
             }
         }
         return 0;
     }
-    
+
     public int[] frequency() {
         int[] freq = new int[6];
-        for (int i = 0; i < 6; i++) {
-            freq[diceArray[i]-1]++;
+        for (int i = 0; i < 5; i++) {
+            freq[diceArray[i] - 1]++;
         }
         return freq;
     }

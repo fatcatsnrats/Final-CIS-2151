@@ -3,9 +3,9 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -102,11 +102,11 @@
                                           <Image url="@dice1.jpg" />
                                        </image>
                                     </ImageView>
-                                    <ToggleButton fx:id="keepDice1" mnemonicParsing="false" onAction="#keepDice1" style="-fx-background-color: #98948f;" text="Keep">
+                                    <CheckBox fx:id="keepDice1" mnemonicParsing="false" onAction="#keepDice1" text="Keep">
                                        <VBox.margin>
-                                          <Insets left="20.0" />
+                                          <Insets left="10.0" />
                                        </VBox.margin>
-                                    </ToggleButton>
+                                    </CheckBox>
                                  </children>
                               </VBox>
                               <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="128.0" prefWidth="103.0">
@@ -124,10 +124,11 @@
                                           <Image url="@dice2.jpg" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="keepDice2" mnemonicParsing="false" onAction="#keepDice2" style="-fx-background-color: #98948f;" text="Keep">
+                                    <CheckBox fx:id="keepDice2" mnemonicParsing="false" onAction="#keepDice2" text="Keep">
                                        <VBox.margin>
-                                          <Insets left="20.0" />
-                                       </VBox.margin></Button>
+                                          <Insets left="15.0" />
+                                       </VBox.margin>
+                                    </CheckBox>
                                  </children>
                               </VBox>
                               <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="75.0">
@@ -145,10 +146,7 @@
                                           <Image url="@dice3.jpg" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="keepDice3" mnemonicParsing="false" onAction="#keepDice3" style="-fx-background-color: #98948f;" text="Keep">
-                                       <VBox.margin>
-                                          <Insets left="10.0" />
-                                       </VBox.margin></Button>
+                                    <CheckBox fx:id="keepDice3" mnemonicParsing="false" onAction="#keepDice3" text="Keep" />
                                  </children>
                               </VBox>
                            </children>
@@ -171,10 +169,11 @@
                                     <Image url="@dice4.jpg" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="keepDice4" mnemonicParsing="false" onAction="#keepDice4" style="-fx-background-color: #98948f;" text="Keep">
+                              <CheckBox fx:id="keepDice4" mnemonicParsing="false" onAction="#keepDice4" text="Keep">
                                  <VBox.margin>
-                                    <Insets left="20.0" />
-                                 </VBox.margin></Button>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </CheckBox>
                            </children>
                         </VBox>
                         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="103.0">
@@ -192,10 +191,11 @@
                                     <Image url="@dice5.jpg" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="keepDice5" mnemonicParsing="false" onAction="#keepDice5" style="-fx-background-color: #98948f;" text="Keep">
+                              <CheckBox fx:id="keepDice5" mnemonicParsing="false" onAction="#keepDice5" text="Keep">
                                  <VBox.margin>
-                                    <Insets left="30.0" />
-                                 </VBox.margin></Button>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </CheckBox>
                            </children>
                         </VBox>
                      </children>
