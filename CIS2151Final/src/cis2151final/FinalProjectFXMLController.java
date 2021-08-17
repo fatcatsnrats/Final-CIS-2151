@@ -173,8 +173,16 @@ public class FinalProjectFXMLController implements Initializable {
         Random rand = new Random();
         String temp = "You ran out of rolls! Select a category to get,"
                 + " your points!";
-        if (turnInt < 1 || categorySelected) {
+        if (categorySelected) {
             categorySelected = false;
+            turnInt = 3;
+            if (player1Turn) {
+                player1Turn = false;
+            } else {
+                player1Turn = true;
+            }
+        }
+        if (turnInt < 1) {
             if (!text1.getText().equalsIgnoreCase(temp)) {
                 text1.setText(temp);
                 textBox.getChildren().add(text1);
@@ -379,7 +387,7 @@ public class FinalProjectFXMLController implements Initializable {
                 player1Yahtzee.setTextFill(Color.RED);
                 player1Yahtzee.setText(String.valueOf(ofAKind(5, true)));
             }
-            if (player1.isCHANCE()) {
+            if (!player1.isCHANCE()) {
                 player1Chance.setTextFill(Color.RED);
                 player1Chance.setText(String.valueOf(dice1 + dice2 + dice3 + dice4 + dice5));
             }
@@ -446,7 +454,7 @@ public class FinalProjectFXMLController implements Initializable {
                 player2Yahtzee.setTextFill(Color.RED);
                 player2Yahtzee.setText(String.valueOf(ofAKind(5, true)));
             }
-            if (player2.isCHANCE()) {
+            if (!player2.isCHANCE()) {
                 player2Chance.setTextFill(Color.RED);
                 player2Chance.setText(String.valueOf(dice1 + dice2 + dice3 + dice4 + dice5));
             }
@@ -471,7 +479,126 @@ public class FinalProjectFXMLController implements Initializable {
 
     @FXML
     private void confirmCategory(ActionEvent event) {
-//        String
+
+        turnCount.setText(String.valueOf(3));
+        
+        player1Ones.setTextFill(Color.BLACK);
+        player1Twos.setTextFill(Color.BLACK);
+        player1Threes.setTextFill(Color.BLACK);
+        player1Fours.setTextFill(Color.BLACK);
+        player1Fives.setTextFill(Color.BLACK);
+        player1Sixes.setTextFill(Color.BLACK);
+        player1ThreeOfAKind.setTextFill(Color.BLACK);
+        player1FourOfAKind.setTextFill(Color.BLACK);
+        player1FullHouse.setTextFill(Color.BLACK);
+        player1SmallStraight.setTextFill(Color.BLACK);
+        player1LargeStraight.setTextFill(Color.BLACK);
+        player1Yahtzee.setTextFill(Color.BLACK);
+        player1Chance.setTextFill(Color.BLACK);
+
+        player2Ones.setTextFill(Color.BLACK);
+        player2Twos.setTextFill(Color.BLACK);
+        player2Threes.setTextFill(Color.BLACK);
+        player2Fours.setTextFill(Color.BLACK);
+        player2Fives.setTextFill(Color.BLACK);
+        player2Sixes.setTextFill(Color.BLACK);
+        player2ThreeOfAKind.setTextFill(Color.BLACK);
+        player2FourOfAKind.setTextFill(Color.BLACK);
+        player2FullHouse.setTextFill(Color.BLACK);
+        player2SmallStraight.setTextFill(Color.BLACK);
+        player2LargeStraight.setTextFill(Color.BLACK);
+        player2Yahtzee.setTextFill(Color.BLACK);
+        player2Chance.setTextFill(Color.BLACK);
+
+        
+        
+        int index = categoryList.getSelectionModel().getSelectedIndex();
+        categorySelected = true;
+        if (player1Turn) {
+            player1Turn = false;
+            switch (index) {
+                case 0:
+                    player1.ONES = true;
+                    player1Ones.setTextFill(Color.BLACK);
+                    player1.setOnes(Integer.valueOf(player1Ones.getText()));
+                    break;
+                case 1:
+                    player1.TWOS = false;
+                    player1Twos.setTextFill(Color.BLACK);
+                    player1.setTwos(Integer.valueOf(player1Twos.getText()));
+                    break;
+                case 2:
+                    player1.THREES = true;
+                    player1Threes.setTextFill(Color.BLACK);
+                    player1.setThrees(Integer.valueOf(player1Threes.getText()));
+                    break;
+                case 3:
+                    player1.FOURS = true;
+                    player1Fours.setTextFill(Color.BLACK);
+                    player1.setFours(Integer.valueOf(player1Fours.getText()));
+                    break;
+                case 4:
+                    player1.FIVES = true;
+                    player1Fives.setTextFill(Color.BLACK);
+                    player1.setFives(Integer.valueOf(player1Fives.getText()));
+                    break;
+                case 5:
+                    player1.SIXES = true;
+                    player1Sixes.setTextFill(Color.BLACK);
+                    player1.setSixes(Integer.valueOf(player1Sixes.getText()));
+                    break;
+                case 6:
+                    player1.THREE_OF_A_KIND = true;
+                    player1ThreeOfAKind.setTextFill(Color.BLACK);
+                    player1.setThreeOfAKind(Integer.valueOf(player1ThreeOfAKind.getText()));
+                    break;
+                case 7:
+                    player1.FOUR_OF_A_KIND = true;
+                    player1FourOfAKind.setTextFill(Color.BLACK);
+                    player1.setFourOfAKind(Integer.valueOf(player1FourOfAKind.getText()));
+                    break;
+                case 8:
+                    player1.FULL_HOUSE = true;
+                    player1FullHouse.setTextFill(Color.BLACK);
+                    player1.setFullHouse(Integer.valueOf(player1FullHouse.getText()));
+                    break;
+                case 9:
+                    player1.SMALL_STRAIGHT = true;
+                    player1SmallStraight.setTextFill(Color.BLACK);
+                    player1.setSmallStraight(Integer.valueOf(player1SmallStraight.getText()));
+                    break;
+                case 10:
+                    player1.LARGE_STRAIGHT = true;
+                    player1LargeStraight.setTextFill(Color.BLACK);
+                    player1.setLargeStraight(Integer.valueOf(player1LargeStraight.getText()));
+                    break;
+                case 11:
+                    player1.YAHTZEE = true;
+                    player1Yahtzee.setTextFill(Color.BLACK);
+                    player1.setChance(Integer.valueOf(player1Chance.getText()));
+                    break;
+                case 12:
+                    player1.CHANCE = true;
+                    player1Chance.setTextFill(Color.BLACK);
+                    player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
+                    break;
+
+            }
+        }
+
+        dice1Keep = false;
+        dice2Keep = false;
+        dice3Keep = false;
+        dice4Keep = false;
+        dice5Keep = false;
+        keepDice1.setSelected(false);
+        keepDice2.setSelected(false);
+        keepDice3.setSelected(false);
+        keepDice4.setSelected(false);
+        keepDice5.setSelected(false);
+        player1Total.setText(String.valueOf(player1.total()));
+        player2Total.setText(String.valueOf(player2.total()));
+        updateDisplayInitialize();
     }
 
     /**

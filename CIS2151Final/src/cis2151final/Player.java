@@ -83,6 +83,13 @@ public class Player {
 //        scoreInt1.add(totalScore);
 
     }
+    
+    public int total() {
+        totalScore = ones + twos + threes + fours + fives + sixes 
+                + threeOfAKind + fourOfAKind + fullHouse + smallStraight
+                + largeStraight + yahtzee + chance;
+        return totalScore;
+    }
 
     public Player(String trash) {
 //        ONES = " ONES";
