@@ -672,9 +672,8 @@ public class FinalProjectFXMLController implements Initializable {
                         break;
                 }
             } else {
-                playAgain();
-                
                 displayScore();
+                playAgain();
 //                text1.setText("You cannot selected that category more than once!");
 //                textBox.getChildren().add(text1);
             }
@@ -757,6 +756,7 @@ public class FinalProjectFXMLController implements Initializable {
                 }
             } else {
                 displayScore();
+                playAgain();
 //                text1.setText("You cannot selected that category more than once!");
 //                textBox.getChildren().add(text1);
             }
