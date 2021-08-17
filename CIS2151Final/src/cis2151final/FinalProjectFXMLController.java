@@ -491,6 +491,8 @@ public class FinalProjectFXMLController implements Initializable {
 
 //    int[] categories = new int[13];
 //    int[] categories1 = new int[13];
+    
+    public int counter;
 
     @FXML
     private void confirmCategory(ActionEvent event) {
@@ -527,7 +529,7 @@ public class FinalProjectFXMLController implements Initializable {
 
         int index = categoryList.getSelectionModel().getSelectedIndex();
 
-        int counter = 0;
+        counter = 0;
         categorySelected = true;
         if (player1Turn) {
 //            for (int i = 0; i < categories.length; i++) {
@@ -762,6 +764,7 @@ public class FinalProjectFXMLController implements Initializable {
             }
         }
 
+        counter++;
         dice1Keep = false;
         dice2Keep = false;
         dice3Keep = false;
@@ -787,6 +790,7 @@ public class FinalProjectFXMLController implements Initializable {
     }
     
     public void playAgain() {
+        counter = 0;
         textBox1.setText("Roll the dice to play again.");
         textBox2.setText("");
         textBox3.setText("");
