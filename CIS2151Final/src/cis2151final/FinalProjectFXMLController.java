@@ -191,6 +191,7 @@ public class FinalProjectFXMLController implements Initializable {
 //                player1Turn = true;
 //            }
         }
+        if (counter >= 26) {
         if (turnInt < 1) {
             textBox1.setText(temp);
         } else {
@@ -326,7 +327,9 @@ public class FinalProjectFXMLController implements Initializable {
             turnCount.setText(String.valueOf(turnInt));
         }
         displayScore();
-
+        } else {
+            playAgain();
+        }
 //        dice1Img.setImage(dice1ImgFile);
     }
 
@@ -552,7 +555,7 @@ public class FinalProjectFXMLController implements Initializable {
 //                    counter++;
 //                }
 //            }
-            if (counter <= 26) {
+//            if (counter <= 26) {
 //                categories[index] = index;
                 switch (index) {
                     case 0:
@@ -673,12 +676,12 @@ public class FinalProjectFXMLController implements Initializable {
                         }
                         break;
                 }
-            } else {
-                displayScore();
-                playAgain();
-//                text1.setText("You cannot selected that category more than once!");
-//                textBox.getChildren().add(text1);
-            }
+//            } else {
+//                displayScore();
+//                playAgain();
+////                text1.setText("You cannot selected that category more than once!");
+////                textBox.getChildren().add(text1);
+//            }
 
         } else {
 //            for (int i = 0; i < categories1.length; i++) {
@@ -686,7 +689,7 @@ public class FinalProjectFXMLController implements Initializable {
 //                    counter++;
 //                }
 //            }
-            if (counter <= 26) {
+//            if (counter <= 26) {
                 switch (index) {
                     case 0:
                         if (!player2.isONES()) {
@@ -807,12 +810,12 @@ public class FinalProjectFXMLController implements Initializable {
                         }
                         break;
                 }
-            } else {
-                displayScore();
-                playAgain();
-//                text1.setText("You cannot selected that category more than once!");
-//                textBox.getChildren().add(text1);
-            }
+//            } else {
+//                displayScore();
+//                playAgain();
+////                text1.setText("You cannot selected that category more than once!");
+////                textBox.getChildren().add(text1);
+//            }
         }
 
         counter++;
@@ -861,6 +864,8 @@ public class FinalProjectFXMLController implements Initializable {
         player1 = new Player();
         player2 = new Player();
         player1Turn = true;
+        updateDisplayInitialize();
+        updateScores();
     }
 
     public int sum(int n) {
@@ -978,7 +983,7 @@ public class FinalProjectFXMLController implements Initializable {
         textBox6.setText("");
 
         player1Turn = true;
-        counter = 0;
+        counter = 24;
 
     }
 //    
