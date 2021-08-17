@@ -191,7 +191,6 @@ public class FinalProjectFXMLController implements Initializable {
 //                player1Turn = true;
 //            }
         }
-        if (counter >= 26) {
         if (turnInt < 1) {
             textBox1.setText(temp);
         } else {
@@ -327,9 +326,6 @@ public class FinalProjectFXMLController implements Initializable {
             turnCount.setText(String.valueOf(turnInt));
         }
         displayScore();
-        } else {
-            playAgain();
-        }
 //        dice1Img.setImage(dice1ImgFile);
     }
 
@@ -528,6 +524,7 @@ public class FinalProjectFXMLController implements Initializable {
         keepDice3.setSelected(false);
         keepDice4.setSelected(false);
         keepDice5.setSelected(false);
+        counter++;
 
         updateDisplayInitialize();
 
@@ -538,6 +535,9 @@ public class FinalProjectFXMLController implements Initializable {
         }
 
         updateScores();
+        if (counter >= 26) {
+            playAgain();
+        }
     }
 
     @FXML
@@ -557,287 +557,267 @@ public class FinalProjectFXMLController implements Initializable {
 //            }
 //            if (counter <= 26) {
 //                categories[index] = index;
-                switch (index) {
-                    case 0:
-                        if (!player1.isONES()) {
-                            player1.ONES = true;
-                            player1.setOnes(Integer.valueOf(player1Ones.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 1:
-                        if (!player1.isTWOS()) {
-                            player1.TWOS = true;
-                            player1.setTwos(Integer.valueOf(player1Twos.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 2:
-                        if (!player1.isTHREES()) {
-                            player1.THREES = true;
-                            player1.setThrees(Integer.valueOf(player1Threes.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 3:
-                        if (!player1.isFOURS()) {
-                            player1.FOURS = true;
-                            player1.setFours(Integer.valueOf(player1Fours.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 4:
-                        if (!player1.isFIVES()) {
-                            player1.FIVES = true;
-                            player1.setFives(Integer.valueOf(player1Fives.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 5:
-                        if (!player1.isSIXES()) {
-                            player1.SIXES = true;
-                            player1.setSixes(Integer.valueOf(player1Sixes.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 6:
-                        if (!player1.isTHREE_OF_A_KIND()) {
-                            player1.THREE_OF_A_KIND = true;
-                            player1.setThreeOfAKind(Integer.valueOf(player1ThreeOfAKind.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 7:
-                        if (!player1.isFOUR_OF_A_KIND()) {
-                            player1.FOUR_OF_A_KIND = true;
-                            player1.setFourOfAKind(Integer.valueOf(player1FourOfAKind.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 8:
-                        if (!player1.isFULL_HOUSE()) {
-                            player1.FULL_HOUSE = true;
-                            player1.setFullHouse(Integer.valueOf(player1FullHouse.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 9:
-                        if (!player1.isSMALL_STRAIGHT()) {
-                            player1.SMALL_STRAIGHT = true;
-                            player1.setSmallStraight(Integer.valueOf(player1SmallStraight.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 10:
-                        if (!player1.isLARGE_STRAIGHT()) {
-                            player1.LARGE_STRAIGHT = true;
-                            player1.setLargeStraight(Integer.valueOf(player1LargeStraight.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 11:
-                        if (!player1.isCHANCE()) {
-                            player1.CHANCE = true;
-                            player1.setChance(Integer.valueOf(player1Chance.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 12:
-                        if (!player1.isYAHTZEE()) {
-                            player1.YAHTZEE = true;
-                            player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
-                            categorySuccess(string2);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                }
-//            } else {
-//                displayScore();
-//                playAgain();
-////                text1.setText("You cannot selected that category more than once!");
-////                textBox.getChildren().add(text1);
-//            }
-
+            switch (index) {
+                case 0:
+                    if (!player1.isONES()) {
+                        player1.ONES = true;
+                        player1.setOnes(Integer.valueOf(player1Ones.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 1:
+                    if (!player1.isTWOS()) {
+                        player1.TWOS = true;
+                        player1.setTwos(Integer.valueOf(player1Twos.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 2:
+                    if (!player1.isTHREES()) {
+                        player1.THREES = true;
+                        player1.setThrees(Integer.valueOf(player1Threes.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 3:
+                    if (!player1.isFOURS()) {
+                        player1.FOURS = true;
+                        player1.setFours(Integer.valueOf(player1Fours.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 4:
+                    if (!player1.isFIVES()) {
+                        player1.FIVES = true;
+                        player1.setFives(Integer.valueOf(player1Fives.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 5:
+                    if (!player1.isSIXES()) {
+                        player1.SIXES = true;
+                        player1.setSixes(Integer.valueOf(player1Sixes.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 6:
+                    if (!player1.isTHREE_OF_A_KIND()) {
+                        player1.THREE_OF_A_KIND = true;
+                        player1.setThreeOfAKind(Integer.valueOf(player1ThreeOfAKind.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 7:
+                    if (!player1.isFOUR_OF_A_KIND()) {
+                        player1.FOUR_OF_A_KIND = true;
+                        player1.setFourOfAKind(Integer.valueOf(player1FourOfAKind.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 8:
+                    if (!player1.isFULL_HOUSE()) {
+                        player1.FULL_HOUSE = true;
+                        player1.setFullHouse(Integer.valueOf(player1FullHouse.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 9:
+                    if (!player1.isSMALL_STRAIGHT()) {
+                        player1.SMALL_STRAIGHT = true;
+                        player1.setSmallStraight(Integer.valueOf(player1SmallStraight.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 10:
+                    if (!player1.isLARGE_STRAIGHT()) {
+                        player1.LARGE_STRAIGHT = true;
+                        player1.setLargeStraight(Integer.valueOf(player1LargeStraight.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 11:
+                    if (!player1.isCHANCE()) {
+                        player1.CHANCE = true;
+                        player1.setChance(Integer.valueOf(player1Chance.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 12:
+                    if (!player1.isYAHTZEE()) {
+                        player1.YAHTZEE = true;
+                        player1.setYahtzee(Integer.valueOf(player1Yahtzee.getText()));
+                        categorySuccess(string2);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+            }
         } else {
-//            for (int i = 0; i < categories1.length; i++) {
-//                if (categories1[i] == index) {
-//                    counter++;
-//                }
-//            }
-//            if (counter <= 26) {
-                switch (index) {
-                    case 0:
-                        if (!player2.isONES()) {
-                            player2.ONES = true;
-                            player2.setOnes(Integer.valueOf(player2Ones.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 1:
-                        if (!player2.isTWOS()) {
-                            player2.TWOS = true;
-                            player2.setTwos(Integer.valueOf(player2Twos.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 2:
-                        if (!player2.isTHREES()) {
-                            player2.THREES = true;
-                            player2.setThrees(Integer.valueOf(player2Threes.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 3:
-                        if (!player2.isFOURS()) {
-                            player2.FOURS = true;
-                            player2.setFours(Integer.valueOf(player2Fours.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 4:
-                        if (!player2.isFIVES()) {
-                            player2.FIVES = true;
-                            player2.setFives(Integer.valueOf(player2Fives.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 5:
-                        if (!player2.isSIXES()) {
-                            player2.SIXES = true;
-                            player2.setSixes(Integer.valueOf(player2Sixes.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 6:
-                        if (!player2.isTHREE_OF_A_KIND()) {
-                            player2.THREE_OF_A_KIND = true;
-                            player2.setThreeOfAKind(Integer.valueOf(player2ThreeOfAKind.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 7:
-                        if (!player2.isFOUR_OF_A_KIND()) {
-                            player2.FOUR_OF_A_KIND = true;
-                            player2.setFourOfAKind(Integer.valueOf(player2FourOfAKind.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 8:
-                        if (!player2.isFULL_HOUSE()) {
-                            player2.FULL_HOUSE = true;
-                            player2.setFullHouse(Integer.valueOf(player2FullHouse.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 9:
-                        if (!player2.isSMALL_STRAIGHT()) {
-                            player2.SMALL_STRAIGHT = true;
-                            player2.setSmallStraight(Integer.valueOf(player2SmallStraight.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 10:
-                        if (!player2.isLARGE_STRAIGHT()) {
-                            player2.LARGE_STRAIGHT = true;
-                            player2.setLargeStraight(Integer.valueOf(player2LargeStraight.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 11:
-                        if (!player2.isCHANCE()) {
-                            player2.CHANCE = true;
-                            player2.setChance(Integer.valueOf(player2Chance.getText()));
-                            categorySuccess(string1);
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                    case 12:
-                        if (!player2.isYAHTZEE()) {
-                            player2.YAHTZEE = true;
-                            player2.setYahtzee(Integer.valueOf(player2Yahtzee.getText()));
-                            categorySuccess(string1);
-                            player2.setYahtzee(Integer.valueOf(player2Yahtzee.getText()));
-                        } else {
-                            textBox1.setText(temp);
-                        }
-                        break;
-                }
-//            } else {
-//                displayScore();
-//                playAgain();
-////                text1.setText("You cannot selected that category more than once!");
-////                textBox.getChildren().add(text1);
-//            }
+            switch (index) {
+                case 0:
+                    if (!player2.isONES()) {
+                        player2.ONES = true;
+                        player2.setOnes(Integer.valueOf(player2Ones.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 1:
+                    if (!player2.isTWOS()) {
+                        player2.TWOS = true;
+                        player2.setTwos(Integer.valueOf(player2Twos.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 2:
+                    if (!player2.isTHREES()) {
+                        player2.THREES = true;
+                        player2.setThrees(Integer.valueOf(player2Threes.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 3:
+                    if (!player2.isFOURS()) {
+                        player2.FOURS = true;
+                        player2.setFours(Integer.valueOf(player2Fours.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 4:
+                    if (!player2.isFIVES()) {
+                        player2.FIVES = true;
+                        player2.setFives(Integer.valueOf(player2Fives.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 5:
+                    if (!player2.isSIXES()) {
+                        player2.SIXES = true;
+                        player2.setSixes(Integer.valueOf(player2Sixes.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 6:
+                    if (!player2.isTHREE_OF_A_KIND()) {
+                        player2.THREE_OF_A_KIND = true;
+                        player2.setThreeOfAKind(Integer.valueOf(player2ThreeOfAKind.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 7:
+                    if (!player2.isFOUR_OF_A_KIND()) {
+                        player2.FOUR_OF_A_KIND = true;
+                        player2.setFourOfAKind(Integer.valueOf(player2FourOfAKind.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 8:
+                    if (!player2.isFULL_HOUSE()) {
+                        player2.FULL_HOUSE = true;
+                        player2.setFullHouse(Integer.valueOf(player2FullHouse.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 9:
+                    if (!player2.isSMALL_STRAIGHT()) {
+                        player2.SMALL_STRAIGHT = true;
+                        player2.setSmallStraight(Integer.valueOf(player2SmallStraight.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 10:
+                    if (!player2.isLARGE_STRAIGHT()) {
+                        player2.LARGE_STRAIGHT = true;
+                        player2.setLargeStraight(Integer.valueOf(player2LargeStraight.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 11:
+                    if (!player2.isCHANCE()) {
+                        player2.CHANCE = true;
+                        player2.setChance(Integer.valueOf(player2Chance.getText()));
+                        categorySuccess(string1);
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+                case 12:
+                    if (!player2.isYAHTZEE()) {
+                        player2.YAHTZEE = true;
+                        player2.setYahtzee(Integer.valueOf(player2Yahtzee.getText()));
+                        categorySuccess(string1);
+                        player2.setYahtzee(Integer.valueOf(player2Yahtzee.getText()));
+                    } else {
+                        textBox1.setText(temp);
+                    }
+                    break;
+            }
         }
-
-        counter++;
         player1Total.setText(String.valueOf(player1.total()));
         player2Total.setText(String.valueOf(player2.total()));
     }
 
     @FXML
     private void dice1Img(MouseEvent event) {
+        if (keepDice1.isSelected()) {
+            keepDice1.setSelected(false);
+        } else {
+            keepDice1.setSelected(true);
+        }
     }
 
     @FXML
     private void dice2Img(MouseEvent event) {
-    }
-
-    /**
-     * Initializes the controller class.
-     */
-    public enum Rules {
-        ZERO, ONES, TWOS, THREES, FOURS, FIVES, SIXES, THREE_OF_A_KIND,
-        FOUR_OF_A_KIND, FULL_HOUSE, SMALL_STRAIGHT, LARGE_STRAIGHT, CHANCE,
-        YAHTZEE, TOTAL_SCORE
+        if (keepDice2.isSelected()) {
+            keepDice2.setSelected(false);
+        } else {
+            keepDice2.setSelected(true);
+        }
     }
 
     public void playAgain() {
@@ -878,6 +858,8 @@ public class FinalProjectFXMLController implements Initializable {
         return count * n;
     }
 
+    /////// taken from AndrewSouthpaw's Github
+    ///https://github.com/AndrewSouthpaw/Yahtzee/blob/master/Yahtzee.java
     public boolean isStraight(int n) {
         int[] freq = frequency();
         for (int i = 0; i < (freq.length - n + 1); i++) {
@@ -895,6 +877,8 @@ public class FinalProjectFXMLController implements Initializable {
         return false;
     }
 
+    /////// inspired from AndrewSouthpaw's Github 
+    ///https://github.com/AndrewSouthpaw/Yahtzee/blob/master/Yahtzee.java
     public int ofAKind(int n, boolean exact) {
         int[] freq = frequency();
         for (int i = 0; i < freq.length; i++) {
@@ -919,6 +903,8 @@ public class FinalProjectFXMLController implements Initializable {
         return 0;
     }
 
+    /////// taken from AndrewSouthpaw's Github
+    ///https://github.com/AndrewSouthpaw/Yahtzee/blob/master/Yahtzee.java
     public int[] frequency() {
         int[] freq = new int[6];
         for (int i = 0; i < 5; i++) {
@@ -983,16 +969,34 @@ public class FinalProjectFXMLController implements Initializable {
         textBox6.setText("");
 
         player1Turn = true;
-        counter = 24;
+        counter = 0;
 
     }
-//    
-//    public ObservableList<Player> getScores() {
-//        ObservableList<Player> scoresObservableList = FXCollections.observableArrayList();
-//        scoresObservableList.add(rulesPlayer);
-//        scoresObservableList.add(player1);
-//        scoresObservableList.add(player2);
-//        return scoresObservableList;
-//    }
 
+    @FXML
+    private void dice3Img(MouseEvent event) {
+        if (keepDice3.isSelected()) {
+            keepDice3.setSelected(false);
+        } else {
+            keepDice3.setSelected(true);
+        }
+    }
+
+    @FXML
+    private void dice4Img(MouseEvent event) {
+        if (keepDice4.isSelected()) {
+            keepDice4.setSelected(false);
+        } else {
+            keepDice4.setSelected(true);
+        }
+    }
+
+    @FXML
+    private void dice5Img(MouseEvent event) {
+        if (keepDice5.isSelected()) {
+            keepDice5.setSelected(false);
+        } else {
+            keepDice5.setSelected(true);
+        }
+    }
 }
